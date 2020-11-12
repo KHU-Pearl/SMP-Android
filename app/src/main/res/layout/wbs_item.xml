@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/bg_listitem"
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_listitem"
     android:padding="@dimen/layout_margin_size"
     android:elevation="10dp"
     android:layout_marginBottom="@dimen/layout_margin_size">
@@ -18,33 +19,43 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textview_mentee_name"
+        android:id="@+id/textview_work_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="팀 이름"
+        android:layout_marginBottom="7dp"
+        android:text="작업 이름"
         android:textColor="@color/white"
         android:textSize="@dimen/list_item_title_size"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textview_mentee_subject"
+        app:layout_constraintBottom_toTopOf="@+id/textview_work_field"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- 진행바 추가 -->
-
     <TextView
-        android:id="@+id/textview_mentee_subject"
+        android:id="@+id/textview_work_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="팀 주제"
+        android:text="분류(태그)"
         android:textColor="@color/white"
         android:textSize="@dimen/list_item_content_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_mentee_name" />
+        app:layout_constraintTop_toBottomOf="@id/textview_work_name" />
 
+    <TextView
+        android:id="@+id/textview_work_dday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:text="D-00"
+        android:textColor="@color/white"
+        android:textSize="@dimen/list_title_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

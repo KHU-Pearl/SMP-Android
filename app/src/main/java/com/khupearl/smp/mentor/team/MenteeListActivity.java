@@ -1,4 +1,4 @@
-package com.khupearl.smp.mentor;
+package com.khupearl.smp.mentor.team;
 
 import android.os.Bundle;
 import android.widget.TextView;

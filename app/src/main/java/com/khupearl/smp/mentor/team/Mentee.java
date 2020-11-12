@@ -1,4 +1,4 @@
-package com.khupearl.smp.mentor;
+package com.khupearl.smp.mentor.team;
 
 public class Mentee {
     private String name;

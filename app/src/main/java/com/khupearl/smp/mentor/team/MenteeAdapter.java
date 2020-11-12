@@ -1,12 +1,15 @@
-package com.khupearl.smp.mentor;
+package com.khupearl.smp.mentor.team;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.khupearl.smp.R;
+import com.khupearl.smp.mentor.wbs.WbsListActivity;
 
 import java.util.ArrayList;
 
@@ -32,11 +35,21 @@ public class MenteeAdapter extends RecyclerView.Adapter<MenteeAdapter.MenteeView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MenteeViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MenteeViewHolder holder, final int position) {
         final Mentee mentee = menteeArrayList.get(position);
 
         holder.menteeNameTextView.setText(mentee.getName());
         holder.menteeSubjectTextView.setText(mentee.getSubject());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, WbsListActivity.class);
+//                intent.putExtra("position", position);
+//                intent.putExtra("teamName", mentee.getName());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
