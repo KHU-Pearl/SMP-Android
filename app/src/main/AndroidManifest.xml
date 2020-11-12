@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".mentor.team.MenteeListActivity" />
+        <activity android:name=".mentor.wbs.WbsListActivity" />
+        <activity android:name=".mentor.wbs.WorkDetailActivity" />
     </application>
 
 </manifest>
