@@ -40,7 +40,15 @@ public class WorkAdapter extends RecyclerView.Adapter<WorkAdapter.WorkViewHolder
         holder.workNameTextView.setText(work.getSubject());
         holder.workFieldTextView.setText(work.getField());
 
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, WorkDetailActivity.class);
+//                intent.putExtra("position", position);
+//                intent.putExtra("teamName", mentee.getName());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
