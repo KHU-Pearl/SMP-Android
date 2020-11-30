@@ -7,7 +7,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<!--    1. 로고버전-->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
@@ -21,23 +20,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.65999997"
         app:layout_constraintWidth_percent="0.57" />
-
-<!--    2. 텍스트버전-->
-<!--    <TextView-->
-<!--        android:id="@+id/login_title"-->
-<!--        android:layout_width="211dp"-->
-<!--        android:layout_height="97dp"-->
-<!--        android:layout_marginBottom="40dp"-->
-<!--        android:gravity="center_horizontal"-->
-<!--        android:text="창업관리\n프로그램"-->
-<!--        android:textSize="32sp"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/constraintlayout_input"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.08"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="1.0"-->
-<!--        app:layout_constraintWidth_percent="0.57" />-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayout_input"
