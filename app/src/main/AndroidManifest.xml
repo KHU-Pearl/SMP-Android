@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
+        <activity android:name=".SignupActivity"/>
         <activity android:name=".mentor.team.MenteeListActivity" />
         <activity android:name=".mentor.wbs.WbsListActivity" />
         <activity android:name=".mentor.wbs.WorkDetailActivity" />
