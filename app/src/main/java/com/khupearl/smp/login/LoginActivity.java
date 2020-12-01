@@ -45,7 +45,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String input_email = editText_ID.getText().toString();
                 String input_password = editText_password.getText().toString();
                 Login(input_email,input_password);
-
                 break;
             case R.id.signup_button:
                 startActivity(new Intent(this, SignupActivity.class));
