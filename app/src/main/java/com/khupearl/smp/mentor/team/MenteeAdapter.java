@@ -28,7 +28,7 @@ public class MenteeAdapter extends RecyclerView.Adapter<MenteeAdapter.MenteeView
     @NonNull
     @Override
     public MenteeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.mentee_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_mentee, parent, false);
         MenteeViewHolder viewHolder = new MenteeViewHolder(view);
         return viewHolder;
     }
