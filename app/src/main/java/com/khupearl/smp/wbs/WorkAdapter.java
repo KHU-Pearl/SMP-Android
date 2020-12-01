@@ -1,4 +1,4 @@
-package com.khupearl.smp.mentor.wbs;
+package com.khupearl.smp.wbs;
 
 import android.content.Context;
 import android.content.Intent;
