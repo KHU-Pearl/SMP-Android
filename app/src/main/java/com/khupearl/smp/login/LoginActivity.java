@@ -1,4 +1,4 @@
-package com.khupearl.smp;
+package com.khupearl.smp.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.khupearl.smp.R;
+import com.khupearl.smp.mentee.MenteeMainActivity;
 import com.khupearl.smp.mentor.team.MenteeListActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,8 +34,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.login_button:
-                startActivity(new Intent(LoginActivity.this, MenteeListActivity.class));
-                Toast.makeText(LoginActivity.this, "멘토로 로그인되었습니다.", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(LoginActivity.this, MenteeMainActivity.class));
+                Toast.makeText(LoginActivity.this, "멘티로 로그인되었습니다.", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.signup_button:
                 startActivity(new Intent(this, SignupActivity.class));

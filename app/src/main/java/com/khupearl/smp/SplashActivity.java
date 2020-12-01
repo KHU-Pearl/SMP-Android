@@ -3,6 +3,8 @@ package com.khupearl.smp;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.khupearl.smp.login.LoginActivity;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
