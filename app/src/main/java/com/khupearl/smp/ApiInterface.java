@@ -1,5 +1,7 @@
 package com.khupearl.smp;
 
+import com.khupearl.smp.wbs.Work;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -25,5 +27,22 @@ public interface ApiInterface {
             @Field("password") String password
     );
 
+    @FormUrlEncoded
+    @POST("wbs_team.php")
+    Call<Work> getWbsListByTeam(
+            @Query("fk_team") String fk_team
+    );
 
+    @FormUrlEncoded
+    @POST("wbs_id.php")
+    Call<Work> getWorkById(
+            @Field("id") int id
+    );
 }
+
+//    다음에 쓰려고 적어둠 (사실 잘못적었는데 지우기 아까움)
+//
+//    @Query("fk_team") String fk_team,
+//    @Query("title") String title,
+//    @Query("content") String content,
+//    @Query("field") String field,

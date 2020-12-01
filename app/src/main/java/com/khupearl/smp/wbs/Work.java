@@ -1,15 +1,29 @@
 package com.khupearl.smp.wbs;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class Work {
     @Expose
-    private String team; //
-    private String title; //
-    private String content; //
+    @SerializedName("fk_team") private String team;
+
+    @Expose
+    @SerializedName("title") private String title;
+
+    @Expose
+    @SerializedName("content") private String content;
+
     private String date;
-    private String field; //
+
+    @Expose
+    @SerializedName("field") private String field;
+
     private String state;
 
-    private int id; //
+    @Expose
+    @SerializedName("id") private int id;
+
+    @Expose
+    @SerializedName("success") private boolean success;
 
     public Work(String title, String field, int id) {
         this.title = title;
@@ -79,5 +93,13 @@ public class Work {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
     }
 }

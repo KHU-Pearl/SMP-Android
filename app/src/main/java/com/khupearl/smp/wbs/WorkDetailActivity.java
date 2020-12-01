@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.khupearl.smp.ApiClient;
+import com.khupearl.smp.ApiInterface;
 import com.khupearl.smp.R;
 import com.khupearl.smp.databinding.ActivityWbsdetailBinding;
-import com.khupearl.smp.login.LoginActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class WorkDetailActivity extends AppCompatActivity {
 
@@ -27,14 +31,38 @@ public class WorkDetailActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_wbsdetail);
 
         Intent intent = getIntent();
-        wbsId = intent.getIntExtra("wbsId", -1);
+        wbsId = intent.getIntExtra("wbsId", wbsIdDefault);
         if (wbsId == -1) {
             Log.e(TAG, "failed to get wbs id");
             Toast.makeText(WorkDetailActivity.this, "정보를 가져오는데 실패했습니다.", Toast.LENGTH_SHORT).show();
             finish(); // wbs 가져오는데 실패함. 액티비티 종료.
+        } else {
+            Log.e(TAG, "success to get wbs id : " + wbsId);
+            getWorkDeatil(wbsId); // 레트로핏으로 서버에서 값을 받아옴
         }
+    }
 
+    private void getWorkDeatil(int id) {
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<Work> call = apiInterface.getWorkById(id);
+        call.enqueue(new Callback<Work>() {
+            @Override
+            public void onResponse(Call<Work> call, Response<Work> response) {
+                if (response.body().isSuccess())
+                {
+                    binding.titleTextView.setText(response.body().getTitle());
+                    binding.contentDetailTextView.setText(response.body().getContent());
+                    binding.fieldDetailTextView.setText(response.body().getField());
+                    Log.e(TAG, "서버성공 : (title) " + response.body().getTitle());
+                }
 
+            }
+
+            @Override
+            public void onFailure(Call<Work> call, Throwable t) {
+                Log.e(TAG, "서버에러 : " + t.getMessage());
+            }
+        });
     }
 
 
