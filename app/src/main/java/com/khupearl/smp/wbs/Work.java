@@ -1,43 +1,44 @@
 package com.khupearl.smp.wbs;
 
-import java.util.ArrayList;
-
 public class Work {
-    private String teamName;
-    private String subject;
-    private String content;
-    private String time;
-    private String field;
-    ArrayList<String> member = new ArrayList<>();
+    @Expose
+    private String team; //
+    private String title; //
+    private String content; //
+    private String date;
+    private String field; //
+    private String state;
 
-    public Work(String subject, String field) {
-        this.subject = subject;
+    private int id; //
+
+    public Work(String title, String field, int id) {
+        this.title = title;
         this.field = field;
+        this.id = id;
     }
 
-    public Work(String teamName, String subject, String content, String time, String field, ArrayList<String> member) {
-        this.teamName = teamName;
-        this.subject = subject;
+    public Work(String team, String title, String content, String date, String field) {
+        this.team = team;
+        this.title = title;
         this.content = content;
-        this.time = time;
+        this.date = date;
         this.field = field;
-        this.member = member;
     }
 
-    public String getTeamName() {
-        return teamName;
+    public String getTeam() {
+        return team;
     }
 
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
+    public void setTeam(String team) {
+        this.team = team;
     }
 
-    public String getSubject() {
-        return subject;
+    public String getTitle() {
+        return title;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {
@@ -48,12 +49,12 @@ public class Work {
         this.content = content;
     }
 
-    public String getTime() {
-        return time;
+    public String getDate() {
+        return date;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getField() {
@@ -64,11 +65,19 @@ public class Work {
         this.field = field;
     }
 
-    public ArrayList<String> getMember() {
-        return member;
+    public String getState() {
+        return state;
     }
 
-    public void setMember(ArrayList<String> member) {
-        this.member = member;
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

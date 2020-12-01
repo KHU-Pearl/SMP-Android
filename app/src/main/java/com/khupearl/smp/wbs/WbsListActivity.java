@@ -44,8 +44,8 @@ public class WbsListActivity extends AppCompatActivity {
     }
 
     private void setWorkTemp() {
-        workArrayList.add(new Work("UI구현하기", "안드로이드"));
-        workArrayList.add(new Work("창업기획서작성", "기획"));
-        workArrayList.add(new Work("기능개발", "안드로이드"));
+        workArrayList.add(new Work("UI구현하기", "안드로이드", 1));
+        workArrayList.add(new Work("창업기획서작성", "기획", 2));
+        workArrayList.add(new Work("기능개발", "안드로이드", 3));
     }
 }
