@@ -3,8 +3,9 @@ package com.khupearl.smp.wbs;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.TextView;
+import android.view.View;
 
+import com.khupearl.smp.SmpToolbar;
 import com.khupearl.smp.api.ApiClient;
 import com.khupearl.smp.api.ApiInterface;
 import com.khupearl.smp.R;
@@ -22,7 +23,7 @@ import retrofit2.Response;
 public class WbsListActivity extends AppCompatActivity {
     private static final String TAG = "WbsListActivity";
 
-    TextView titleTextView;
+    private SmpToolbar toolbar;
 
     RecyclerView wbsListRecyclerView;
     LinearLayoutManager linearLayoutManager;
@@ -44,9 +45,10 @@ public class WbsListActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        titleTextView = findViewById(R.id.textview_wbs_title);
         wbsListRecyclerView = findViewById(R.id.recyclerview_wbslist);
+        toolbar = findViewById(R.id.wbsListToolbar);
 
+        setToolBar();
 
         linearLayoutManager = new LinearLayoutManager(this);
         wbsListRecyclerView.setLayoutManager(linearLayoutManager);
@@ -77,6 +79,16 @@ public class WbsListActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Work>> call, Throwable t) {
                 Log.e(TAG, "서버에러 : " + t.getMessage());
+            }
+        });
+    }
+
+    private void setToolBar() {
+        toolbar.setTitleTextView("프로젝트 작업 목록");
+        toolbar.setLeftButton(R.drawable.ic_arrow_back, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }

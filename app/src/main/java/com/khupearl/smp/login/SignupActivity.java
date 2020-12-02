@@ -8,12 +8,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.khupearl.smp.R;
+import com.khupearl.smp.SmpToolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SignupActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText editText_ID, editText_password, editText_name, editText_major;
     private Button IdcheckButton,SignupButton;
+    private SmpToolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +25,13 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
         editText_password = findViewById(R.id.editTextTextPassword_signup);
         editText_name = findViewById(R.id.editTextName_signup);
         editText_major = findViewById(R.id.editTextMajor_signup);
-
+        toolbar = findViewById(R.id.signupToolbar);
 
         IdcheckButton = findViewById(R.id.id_check_button);
         SignupButton = findViewById(R.id.signup_confirm_button);
         SignupButton.setOnClickListener(this);
+
+        setToolBar();
     }
 
     @Override
@@ -38,5 +42,15 @@ public class SignupActivity extends AppCompatActivity implements View.OnClickLis
                 Toast.makeText(SignupActivity.this, "회원가입 되었습니다.", Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+
+    private void setToolBar() {
+        toolbar.setTitleTextView("회원가입");
+        toolbar.setLeftButton(R.drawable.ic_arrow_back, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }

@@ -3,6 +3,7 @@ package com.khupearl.smp.wbs;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.khupearl.smp.api.ApiClient;
@@ -50,12 +51,11 @@ public class WorkDetailActivity extends AppCompatActivity {
             public void onResponse(Call<Work> call, Response<Work> response) {
                 if (response.body().isSuccess())
                 {
-                    binding.titleTextView.setText(response.body().getTitle());
+                    setToolBar(response.body().getTitle());
                     binding.contentDetailTextView.setText(response.body().getContent());
                     binding.fieldDetailTextView.setText(response.body().getField());
                     Log.e(TAG, "서버성공 : (title) " + response.body().getTitle());
                 }
-
             }
 
             @Override
@@ -65,5 +65,13 @@ public class WorkDetailActivity extends AppCompatActivity {
         });
     }
 
-
+    private void setToolBar(String title) {
+        binding.wbsDetailToolbar.setLeftButton(R.drawable.ic_arrow_back, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        binding.wbsDetailToolbar.setTitleTextView(title);
+    }
 }
