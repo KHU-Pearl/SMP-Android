@@ -22,8 +22,9 @@ public class MenteeMainActivity extends AppCompatActivity implements View.OnClic
         binding = DataBindingUtil.setContentView(this, R.layout.activity_mentee_main);
 
         binding.summaryConstraintlayout.setOnClickListener(this);
-    }
 
+        setToolBar();
+    }
 
     @Override
     public void onClick(View view) {
@@ -36,5 +37,10 @@ public class MenteeMainActivity extends AppCompatActivity implements View.OnClic
                 break;
         }
 
+    }
+
+    private void setToolBar() {
+        binding.menteeMainToolbar.setLeftButton(R.drawable.ic_setting, null);
+        binding.menteeMainToolbar.setRightButton(R.drawable.ic_notification, null);
     }
 }
