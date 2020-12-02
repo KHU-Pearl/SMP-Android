@@ -2,6 +2,8 @@ package com.khupearl.smp;
 
 import com.khupearl.smp.wbs.Work;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -29,8 +31,8 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("wbs_team.php")
-    Call<Work> getWbsListByTeam(
-            @Query("fk_team") String fk_team
+    Call<List<Work>> getWbsListByTeam(
+            @Field("fk_team") String fk_team
     );
 
     @FormUrlEncoded

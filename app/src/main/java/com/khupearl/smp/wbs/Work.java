@@ -31,12 +31,28 @@ public class Work {
         this.id = id;
     }
 
-    public Work(String team, String title, String content, String date, String field) {
+    public Work(String team, String title, String field, int id) {
+        this.team = team;
+        this.title = title;
+        this.field = field;
+        this.id = id;
+    }
+
+    public Work(String team, String title, String date, String field, int id) {
+        this.team = team;
+        this.title = title;
+        this.date = date;
+        this.field = field;
+        this.id = id;
+    }
+
+    public Work(String team, String title, String content, String date, String field, int id) {
         this.team = team;
         this.title = title;
         this.content = content;
         this.date = date;
         this.field = field;
+        this.id = id;
     }
 
     public String getTeam() {
