@@ -31,11 +31,21 @@ public interface ApiInterface {
             @Field("student_id") int student_id
     );
     @FormUrlEncoded
+    @POST("Register_mentee_possible.php")
+    Call<Mentee> RegisterMenteePossible(
+            @Field("email") String email
+    );
+    @FormUrlEncoded
     @POST("Register_mentor.php")
     Call<Mentor> RegisterMentor(
             @Field("email") String email,
             @Field("name") String name,
             @Field("password") String password
+    );
+    @FormUrlEncoded
+    @POST("Register_mentor_possible.php")
+    Call<Mentor> RegisterMentorPossible(
+            @Field("email") String email
     );
 
 

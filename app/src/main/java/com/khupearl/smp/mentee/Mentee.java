@@ -25,6 +25,17 @@ public class Mentee {
     @Expose
     @SerializedName("success") private Boolean success;
 
+    public Boolean getEmpty() {
+        return empty;
+    }
+
+    public void setEmpty(Boolean empty) {
+        this.empty = empty;
+    }
+
+    @Expose
+    @SerializedName("empty") private Boolean empty;
+
     public Boolean getSuccess() {
         return success;
     }

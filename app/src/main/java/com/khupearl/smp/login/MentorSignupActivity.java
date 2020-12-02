@@ -24,17 +24,20 @@ public class MentorSignupActivity extends AppCompatActivity implements View.OnCl
     private EditText editText_email, editText_password, editText_name;
     private Button IdcheckButton,SignupButton;
     private SmpToolbar toolbar;
+    private boolean check_possible;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_mentor);
+        check_possible = false;
         editText_email = findViewById(R.id.editTextTextEmailAddress_mentorsignup);
         editText_password = findViewById(R.id.editTextTextPassword_mentorsignup);
         editText_name = findViewById(R.id.editTextName_mentorsignup);
         toolbar = findViewById(R.id.mentorsignupToolbar);
 
         IdcheckButton = findViewById(R.id.mentor_id_check_button);
+        IdcheckButton.setOnClickListener(this);
         SignupButton = findViewById(R.id.mentorsignup_confirm_button);
         SignupButton.setOnClickListener(this);
 
@@ -48,12 +51,44 @@ public class MentorSignupActivity extends AppCompatActivity implements View.OnCl
                 String input_email = editText_email.getText().toString();
                 String input_password = editText_password.getText().toString();
                 String input_name = editText_name.getText().toString();
-                Register(input_email,input_password, input_name);
-                Toast.makeText(MentorSignupActivity.this, "회원가입 되었습니다.", Toast.LENGTH_SHORT).show();
+                if(check_possible) Register(input_email,input_password, input_name);
+                else Toast.makeText(MentorSignupActivity.this, "아이디 중복확인이 되지 않았습니다.", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.mentor_id_check_button:
+                CheckPossible(editText_email.getText().toString());
                 break;
         }
+    }
+    private void CheckPossible(String input_email) {
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<Mentor> call = apiInterface.RegisterMentorPossible(input_email);
+        call.enqueue(new Callback<Mentor>() {
+            @Override
+            public void onResponse(Call<Mentor> call, Response<Mentor> response) {
+                if(response.body().getSuccess())
+                {
+                    if(response.body().getEmpty())
+                    {
+                        Toast.makeText(MentorSignupActivity.this, "가능한 아이디입니다.", Toast.LENGTH_SHORT).show();
+                        check_possible = true;
+                    }
+                    else
+                    {
+                        Toast.makeText(MentorSignupActivity.this, "이미 존재하는 아이디입니다.", Toast.LENGTH_SHORT).show();
+                        check_possible = false;
+                    }
+                }
+                else
+                {
+                    Toast.makeText(MentorSignupActivity.this, "서버실패.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Mentor> call, Throwable t) {
+                Toast.makeText(MentorSignupActivity.this, "서버 실패!.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     private void Register(String input_email, String input_password, String input_name) {
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
