@@ -9,8 +9,15 @@ import android.widget.Toast;
 
 import com.khupearl.smp.R;
 import com.khupearl.smp.SmpToolbar;
+import com.khupearl.smp.api.ApiClient;
+import com.khupearl.smp.api.ApiInterface;
+import com.khupearl.smp.mentee.Mentee;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MenteeSignupActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText editText_email, editText_password, editText_name, editText_major, editText_student_id;
@@ -39,12 +46,41 @@ public class MenteeSignupActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.menteesignup_confirm_button:
-                startActivity(new Intent(MenteeSignupActivity.this, LoginActivity.class));
-                Toast.makeText(MenteeSignupActivity.this, "회원가입 되었습니다.", Toast.LENGTH_SHORT).show();
+                String input_email = editText_email.getText().toString();
+                String input_password = editText_password.getText().toString();
+                String input_name = editText_name.getText().toString();
+                String input_major = editText_major.getText().toString();
+                String input_student_id = editText_student_id.getText().toString();
+                Register(input_email,input_password, input_name, input_major, Integer.parseInt(input_student_id));
                 break;
             case R.id.mentee_id_check_button:
                 break;
         }
+    }
+
+    private void Register(String input_email, String input_password, String input_name, String input_major, int input_student_id) {
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<Mentee> call = apiInterface.RegisterMentee(input_email, input_password, input_name, input_major, input_student_id);
+        call.enqueue(new Callback<Mentee>() {
+            @Override
+            public void onResponse(Call<Mentee> call, Response<Mentee> response) {
+                if(response.body().getSuccess())
+                {
+                    Toast.makeText(MenteeSignupActivity.this, "회원가입 되었습니다.", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MenteeSignupActivity.this, LoginActivity.class));
+                }
+                else
+                {
+                    Toast.makeText(MenteeSignupActivity.this, "서버실패.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Mentee> call, Throwable t) {
+                Toast.makeText(MenteeSignupActivity.this, "회원가입 실패하였습니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     private void setToolBar() {

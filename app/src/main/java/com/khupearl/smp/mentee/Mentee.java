@@ -20,7 +20,7 @@ public class Mentee {
     @SerializedName("major") private String major;
 
     @Expose
-    @SerializedName("student_id") private String student_id;
+    @SerializedName("student_id") private int student_id;
 
     @Expose
     @SerializedName("success") private Boolean success;
@@ -73,11 +73,11 @@ public class Mentee {
         this.major = major;
     }
 
-    public String getStudent_id() {
+    public int getStudent_id() {
         return student_id;
     }
 
-    public void setStudent_id(String student_id) {
+    public void setStudent_id(int student_id) {
         this.student_id = student_id;
     }
 }

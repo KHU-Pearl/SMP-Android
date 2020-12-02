@@ -11,6 +11,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.khupearl.smp.R;
 import com.khupearl.smp.SmpToolbar;
+import com.khupearl.smp.api.ApiClient;
+import com.khupearl.smp.api.ApiInterface;
+import com.khupearl.smp.mentee.Mentee;
+import com.khupearl.smp.mentor.Mentor;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MentorSignupActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText editText_email, editText_password, editText_name;
@@ -37,12 +45,39 @@ public class MentorSignupActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.mentorsignup_confirm_button:
-                startActivity(new Intent(MentorSignupActivity.this, LoginActivity.class));
+                String input_email = editText_email.getText().toString();
+                String input_password = editText_password.getText().toString();
+                String input_name = editText_name.getText().toString();
+                Register(input_email,input_password, input_name);
                 Toast.makeText(MentorSignupActivity.this, "회원가입 되었습니다.", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.mentor_id_check_button:
                 break;
         }
+    }
+    private void Register(String input_email, String input_password, String input_name) {
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<Mentor> call = apiInterface.RegisterMentor(input_email, input_password, input_name);
+        call.enqueue(new Callback<Mentor>() {
+            @Override
+            public void onResponse(Call<Mentor> call, Response<Mentor> response) {
+                if(response.body().getSuccess())
+                {
+                    Toast.makeText(MentorSignupActivity.this, "회원가입 되었습니다.", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MentorSignupActivity.this, LoginActivity.class));
+                }
+                else
+                {
+                    Toast.makeText(MentorSignupActivity.this, "서버실패.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Mentor> call, Throwable t) {
+                Toast.makeText(MentorSignupActivity.this, "회원가입 실패하였습니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     private void setToolBar() {

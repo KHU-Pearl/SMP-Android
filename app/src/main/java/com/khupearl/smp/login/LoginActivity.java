@@ -22,7 +22,8 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText editText_ID, editText_password;
     private Button loginButton,menteesignupButton, mentorsignupbutton;
-    String email, fk_team, name, password, major, student_id;
+    String email, fk_team, name, password, major;
+    int student_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
