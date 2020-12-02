@@ -7,12 +7,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.khupearl.smp.ApiClient;
-import com.khupearl.smp.ApiInterface;
-import com.khupearl.smp.Mentee;
+import com.khupearl.smp.api.ApiClient;
+import com.khupearl.smp.api.ApiInterface;
+import com.khupearl.smp.mentee.Mentee;
 import com.khupearl.smp.R;
 import com.khupearl.smp.mentee.MenteeMainActivity;
-import com.khupearl.smp.mentor.team.MenteeListActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

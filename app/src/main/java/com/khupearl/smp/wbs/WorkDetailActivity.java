@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.khupearl.smp.ApiClient;
-import com.khupearl.smp.ApiInterface;
+import com.khupearl.smp.api.ApiClient;
+import com.khupearl.smp.api.ApiInterface;
 import com.khupearl.smp.R;
 import com.khupearl.smp.databinding.ActivityWbsdetailBinding;
 

@@ -11,14 +11,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MenteeListActivity extends AppCompatActivity {
+public class TeamListActivity extends AppCompatActivity {
 
     TextView titleTextView;
     RecyclerView teamListRecyclerView;
     LinearLayoutManager linearLayoutManager;
-    MenteeAdapter menteeAdapter;
+    TeamAdapter menteeAdapter;
 
-    ArrayList<Mentee> menteeArrayList= new ArrayList<>();
+    ArrayList<Team> menteeArrayList= new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +38,13 @@ public class MenteeListActivity extends AppCompatActivity {
 
         setMenteeTemp();
 
-        menteeAdapter = new MenteeAdapter(this, menteeArrayList);
+        menteeAdapter = new TeamAdapter(this, menteeArrayList);
         teamListRecyclerView.setAdapter(menteeAdapter);
     }
 
     private void setMenteeTemp() {
-        menteeArrayList.add(new Mentee("진주라디오", "4차 산업 어쩌구"));
-        menteeArrayList.add(new Mentee("진주티비", "4차 산업 어쩌구"));
-        menteeArrayList.add(new Mentee("진주핸드폰", "4차 산업 어쩌구"));
+        menteeArrayList.add(new Team("진주라디오", "4차 산업 어쩌구"));
+        menteeArrayList.add(new Team("진주티비", "4차 산업 어쩌구"));
+        menteeArrayList.add(new Team("진주핸드폰", "4차 산업 어쩌구"));
     }
 }

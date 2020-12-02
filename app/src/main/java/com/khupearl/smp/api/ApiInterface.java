@@ -1,5 +1,6 @@
-package com.khupearl.smp;
+package com.khupearl.smp.api;
 
+import com.khupearl.smp.mentee.Mentee;
 import com.khupearl.smp.wbs.Work;
 
 import java.util.List;

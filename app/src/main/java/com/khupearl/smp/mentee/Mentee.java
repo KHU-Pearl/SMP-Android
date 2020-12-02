@@ -1,4 +1,4 @@
-package com.khupearl.smp;
+package com.khupearl.smp.mentee;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
