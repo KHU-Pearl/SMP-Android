@@ -29,7 +29,10 @@ public class MenteeMainActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View view) {
         switch(view.getId()) {
             case R.id.summaryConstraintlayout:
-                startActivity(new Intent(MenteeMainActivity.this, WbsListActivity.class));
+                Intent intent = new Intent(MenteeMainActivity.this, WbsListActivity.class);
+                // TODO: 02/12/2020 teamname 하드코딩된부분 수정해야됨
+                intent.putExtra("teamName", "진주라디오");
+                view.getContext().startActivity(intent);
                 break;
         }
 

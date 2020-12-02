@@ -37,15 +37,14 @@ public class WorkAdapter extends RecyclerView.Adapter<WorkAdapter.WorkViewHolder
 
         final Work work = workArrayList.get(position);
 
-        holder.workNameTextView.setText(work.getSubject());
+        holder.workNameTextView.setText(work.getTitle());
         holder.workFieldTextView.setText(work.getField());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, WorkDetailActivity.class);
-//                intent.putExtra("position", position);
-//                intent.putExtra("teamName", mentee.getName());
+                intent.putExtra("wbsId", work.getId());
                 context.startActivity(intent);
             }
         });

@@ -1,10 +1,10 @@
 package com.khupearl.smp.mentor.team;
 
-public class Mentee {
+public class Team {
     private String name;
     private String subject;
 
-    public Mentee(String name, String subject) {
+    public Team(String name, String subject) {
         this.name = name;
         this.subject = subject;
     }

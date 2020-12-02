@@ -1,4 +1,4 @@
-package com.khupearl.smp;
+package com.khupearl.smp.login;
 
 
 public class LoginRequest {
