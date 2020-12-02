@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.khupearl.smp">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -18,10 +21,12 @@
         </activity>
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".login.SignupActivity"/>
-        <activity android:name=".mentor.team.MenteeListActivity" />
+        <activity android:name=".mentor.team.TeamListActivity" />
         <activity android:name=".mentee.MenteeMainActivity" />
         <activity android:name=".wbs.WbsListActivity" />
         <activity android:name=".wbs.WorkDetailActivity" />
     </application>
+
+
 
 </manifest>
