@@ -20,10 +20,21 @@ public class Mentee {
     @SerializedName("major") private String major;
 
     @Expose
-    @SerializedName("student_id") private String student_id;
+    @SerializedName("student_id") private int student_id;
 
     @Expose
     @SerializedName("success") private Boolean success;
+
+    public Boolean getEmpty() {
+        return empty;
+    }
+
+    public void setEmpty(Boolean empty) {
+        this.empty = empty;
+    }
+
+    @Expose
+    @SerializedName("empty") private Boolean empty;
 
     public Boolean getSuccess() {
         return success;
@@ -73,11 +84,11 @@ public class Mentee {
         this.major = major;
     }
 
-    public String getStudent_id() {
+    public int getStudent_id() {
         return student_id;
     }
 
-    public void setStudent_id(String student_id) {
+    public void setStudent_id(int student_id) {
         this.student_id = student_id;
     }
 }

@@ -21,8 +21,9 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText editText_ID, editText_password;
-    private Button loginButton,signupButton;
-    String email, fk_team, name, password, major, student_id;
+    private Button loginButton,menteesignupButton, mentorsignupbutton;
+    String email, fk_team, name, password, major;
+    int student_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +34,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         loginButton = findViewById(R.id.login_button);
         loginButton.setOnClickListener(this);
-        signupButton = findViewById(R.id.signup_button);
-        signupButton.setOnClickListener(this);
+        menteesignupButton = findViewById(R.id.mentee_signup_button);
+        menteesignupButton.setOnClickListener(this);
+        mentorsignupbutton = findViewById(R.id.mentor_signup_button);
+        mentorsignupbutton.setOnClickListener(this);
     }
 
     @Override
@@ -45,10 +48,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String input_password = editText_password.getText().toString();
                 Login(input_email,input_password);
                 break;
-            case R.id.signup_button:
-                startActivity(new Intent(this, SignupActivity.class));
-                Toast.makeText(LoginActivity.this, "회원가입.", Toast.LENGTH_SHORT).show();
+            case R.id.mentee_signup_button:
+                startActivity(new Intent(this, MenteeSignupActivity.class));
+                Toast.makeText(LoginActivity.this, "멘티 회원가입.", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.mentor_signup_button:
+                startActivity(new Intent(this, MentorSignupActivity.class));
+                Toast.makeText(LoginActivity.this, "멘토 회원가입.", Toast.LENGTH_SHORT).show();
+                break;
+
         }
     }
     private void Login(String input_email, String input_password){
