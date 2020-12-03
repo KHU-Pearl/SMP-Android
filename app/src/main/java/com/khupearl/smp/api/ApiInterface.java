@@ -2,6 +2,7 @@ package com.khupearl.smp.api;
 
 import com.khupearl.smp.mentee.Mentee;
 import com.khupearl.smp.mentor.Mentor;
+import com.khupearl.smp.mentor.team.Team;
 import com.khupearl.smp.wbs.Work;
 
 import java.util.List;
@@ -52,6 +53,38 @@ public interface ApiInterface {
     @POST("Register_mentor_possible.php")
     Call<Mentor> RegisterMentorPossible(
             @Field("email") String email
+    );
+
+//    @FormUrlEncoded
+//    @POST("addteam_name_possible.php")
+//    Call<Mentee> AddTeamMemberPossible(
+//            @Field("email") String email
+//    );
+    @FormUrlEncoded
+    @POST("add_team.php")
+    Call<Team> AddTeam(
+            @Field("name") String name,
+            @Field("title") String title,
+            @Field("content") String content
+    );
+    @FormUrlEncoded
+    @POST("addteam_mentor.php")
+    Call<Team> AddTeamMentor(
+            @Field("name") String name,
+            @Field("title") String title
+    );
+    @FormUrlEncoded
+    @POST("addteam_mentee.php")
+    Call<Mentee> AddTeamMentee(
+            @Field("email") String email,
+            @Field("fk_team") String fk_team
+    );
+
+
+    @FormUrlEncoded
+    @POST("addteam_name_possible.php")
+    Call<Team> AddTeamNamePossible(
+            @Field("name") String name
     );
 
 

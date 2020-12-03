@@ -1,5 +1,6 @@
 package com.khupearl.smp.mentor.team;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -57,6 +58,13 @@ public class TeamListActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+        toolbar.setRightButton(R.drawable.ic_baseline_add_24, new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(TeamListActivity.this, AddTeamActivity.class));
             }
         });
     }
