@@ -16,8 +16,14 @@ import retrofit2.http.Query;
 
 public interface ApiInterface {
     @FormUrlEncoded
-    @POST("Login.php")
+    @POST("Login_mentee.php")
     Call<Mentee> loginMentee(
+            @Field("email") String name,
+            @Field("password") String password
+    );
+    @FormUrlEncoded
+    @POST("Login_mentor.php")
+    Call<Mentor> loginMentor(
             @Field("email") String name,
             @Field("password") String password
     );
