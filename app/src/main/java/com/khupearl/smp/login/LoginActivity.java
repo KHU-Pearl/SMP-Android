@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.khupearl.smp.api.ApiClient;
@@ -12,6 +13,9 @@ import com.khupearl.smp.api.ApiInterface;
 import com.khupearl.smp.mentee.Mentee;
 import com.khupearl.smp.R;
 import com.khupearl.smp.mentee.MenteeMainActivity;
+import com.khupearl.smp.mentor.Mentor;
+import com.khupearl.smp.mentor.MentorMainActivity;
+import com.khupearl.smp.mentor.team.TeamListActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,6 +26,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText editText_ID, editText_password;
     private Button loginButton,menteesignupButton, mentorsignupbutton;
+    private RadioGroup rg;
     String email, fk_team, name, password, major;
     int student_id;
 
@@ -31,6 +36,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
         editText_ID = findViewById(R.id.editTextTextEmailAddress);
         editText_password = findViewById(R.id.editTextTextPassword);
+        rg = findViewById(R.id.login_radioGroup);
 
         loginButton = findViewById(R.id.login_button);
         loginButton.setOnClickListener(this);
@@ -46,7 +52,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.login_button:
                 String input_email = editText_ID.getText().toString();
                 String input_password = editText_password.getText().toString();
-                Login(input_email,input_password);
+                if(rg.getCheckedRadioButtonId()==R.id.radio_mentee) LoginMentee(input_email,input_password);
+                else LoginMentor(input_email, input_password);
                 break;
             case R.id.mentee_signup_button:
                 startActivity(new Intent(this, MenteeSignupActivity.class));
@@ -59,7 +66,35 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         }
     }
-    private void Login(String input_email, String input_password){
+    private void LoginMentor(String input_email, String input_password) {
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<Mentor> call = apiInterface.loginMentor(input_email, input_password);
+        call.enqueue(new Callback<Mentor>() {
+            @Override
+            public void onResponse(Call<Mentor> call, Response<Mentor> response) {
+                if(response.body().getSuccess())
+                {
+                    email = response.body().getEmail();
+                    name = response.body().getName();
+                    password = response.body().getPassword();
+                    Toast.makeText(LoginActivity.this, "멘토로 로그인되었습니다.", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(LoginActivity.this, TeamListActivity.class));
+
+                }
+                else{
+                    Toast.makeText(LoginActivity.this, "로그인에 실패하였습니다", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Mentor> call, Throwable t) {
+                Toast.makeText(LoginActivity.this, t.getLocalizedMessage()+"서버 실패", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+    private void LoginMentee(String input_email, String input_password){
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
         Call<Mentee> call = apiInterface.loginMentee(input_email, input_password);
         call.enqueue(new Callback<Mentee>() {
