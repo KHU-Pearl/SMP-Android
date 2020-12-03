@@ -54,6 +54,8 @@ public class WorkDetailActivity extends AppCompatActivity {
                     setToolBar(response.body().getTitle());
                     binding.contentDetailTextView.setText(response.body().getContent());
                     binding.fieldDetailTextView.setText(response.body().getField());
+                    binding.timeDetailTextView.setText(response.body().getDate());
+                    // TODO: 04/12/2020 투입인력 추가 
                     Log.e(TAG, "서버성공 : (title) " + response.body().getTitle());
                 }
             }

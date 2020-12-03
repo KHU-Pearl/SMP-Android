@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context=".wbs.TodoFragment">
+    android:background="@color/white"
+    tools:context=".wbs.list.TodoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="1" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_wbs_todo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/layout_margin_size"/>
 
 </FrameLayout>

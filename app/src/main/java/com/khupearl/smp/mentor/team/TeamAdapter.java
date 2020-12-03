@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.khupearl.smp.R;
-import com.khupearl.smp.wbs.WbsListActivity;
+import com.khupearl.smp.wbs.list.WbsListActivity;
 
 import java.util.ArrayList;
 

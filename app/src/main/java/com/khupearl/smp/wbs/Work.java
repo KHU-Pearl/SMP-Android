@@ -12,12 +12,14 @@ public class Work {
     @Expose
     @SerializedName("content") private String content;
 
-    private String date;
+    @Expose
+    @SerializedName("date") private String date;
 
     @Expose
     @SerializedName("field") private String field;
 
-    private String state;
+    @Expose
+    @SerializedName("state") private String state;
 
     @Expose
     @SerializedName("id") private int id;

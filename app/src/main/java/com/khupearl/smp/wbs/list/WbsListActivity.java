@@ -1,15 +1,12 @@
-package com.khupearl.smp.wbs;
+package com.khupearl.smp.wbs.list;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.khupearl.smp.SmpToolbar;
-import com.khupearl.smp.api.ApiClient;
-import com.khupearl.smp.api.ApiInterface;
 import com.khupearl.smp.R;
 
 import java.util.ArrayList;
@@ -20,13 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class WbsListActivity extends AppCompatActivity {
     private static final String TAG = "WbsListActivity";
@@ -36,12 +28,6 @@ public class WbsListActivity extends AppCompatActivity {
     private FragmentStateAdapter pagerAdapter; // pager adapter
 
     private SmpToolbar toolbar;
-
-    private RecyclerView wbsListRecyclerView;
-    private LinearLayoutManager linearLayoutManager;
-    private WorkAdapter workAdapter;
-
-    private ArrayList<Work> workArrayList= new ArrayList<>();
 
     private String teamName;
 
@@ -74,40 +60,6 @@ public class WbsListActivity extends AppCompatActivity {
             }
         }).attach();
 
-//        wbsListRecyclerView = findViewById(R.id.recyclerview_wbslist);
-
-
-//        linearLayoutManager = new LinearLayoutManager(this);
-//        wbsListRecyclerView.setLayoutManager(linearLayoutManager);
-//
-//        getWorkList(teamName);
-//
-//        workAdapter = new WorkAdapter(this, workArrayList);
-//        wbsListRecyclerView.setAdapter(workAdapter);
-    }
-
-    private void getWorkList(final String team) {
-        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        Call<List<Work>> call = apiInterface.getWbsListByTeam(team);
-        call.enqueue(new Callback<List<Work>>() {
-            @Override
-            public void onResponse(Call<List<Work>> call, Response<List<Work>> response) {
-                if (response.isSuccessful()) {
-                    for (Work w : response.body()) {
-                        workArrayList.add(w);
-                    }
-
-                    Log.e(TAG, "서버성공 | wbs 개수 : " + workArrayList.size());
-                    workAdapter = new WorkAdapter(WbsListActivity.this, workArrayList);
-                    wbsListRecyclerView.setAdapter(workAdapter);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Work>> call, Throwable t) {
-                Log.e(TAG, "서버에러 : " + t.getMessage());
-            }
-        });
     }
 
     private void setToolBar() {
@@ -129,9 +81,9 @@ public class WbsListActivity extends AppCompatActivity {
 
         public WbsPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
             super(fragmentActivity);
-            fragments.add(new TodoFragment());
-            fragments.add(new InprogressFragment());
-            fragments.add(new DoneFragment());
+            fragments.add(new TodoFragment(teamName));
+            fragments.add(new InprogressFragment(teamName));
+            fragments.add(new DoneFragment(teamName));
         }
 
         @NonNull

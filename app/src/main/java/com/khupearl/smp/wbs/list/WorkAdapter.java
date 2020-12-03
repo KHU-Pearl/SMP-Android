@@ -1,4 +1,4 @@
-package com.khupearl.smp.wbs;
+package com.khupearl.smp.wbs.list;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.khupearl.smp.R;
+import com.khupearl.smp.wbs.Work;
+import com.khupearl.smp.wbs.WorkDetailActivity;
 
 import java.util.ArrayList;
 

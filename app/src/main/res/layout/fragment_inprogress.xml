@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
-    tools:context=".wbs.InprogressFragment">
+    android:background="@color/white"
+    tools:context=".wbs.list.InprogressFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_wbs_inprogress"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="2" />
+        android:layout_margin="@dimen/layout_margin_size"/>
 
 </FrameLayout>
