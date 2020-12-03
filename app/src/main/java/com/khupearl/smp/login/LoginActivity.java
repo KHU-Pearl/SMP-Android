@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.khupearl.smp.MyApplication;
 import com.khupearl.smp.api.ApiClient;
 import com.khupearl.smp.api.ApiInterface;
 import com.khupearl.smp.mentee.Mentee;
@@ -24,6 +25,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+    MyApplication myApp;
     private EditText editText_ID, editText_password;
     private Button loginButton,menteesignupButton, mentorsignupbutton;
     private RadioGroup rg;
@@ -37,6 +39,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         editText_ID = findViewById(R.id.editTextTextEmailAddress);
         editText_password = findViewById(R.id.editTextTextPassword);
         rg = findViewById(R.id.login_radioGroup);
+        myApp = (MyApplication)getApplication();
 
         loginButton = findViewById(R.id.login_button);
         loginButton.setOnClickListener(this);
@@ -77,6 +80,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     email = response.body().getEmail();
                     name = response.body().getName();
                     password = response.body().getPassword();
+                    myApp.setLogin_type("mentor");
+                    myApp.setEmail(email);
                     Toast.makeText(LoginActivity.this, "멘토로 로그인되었습니다.", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginActivity.this, TeamListActivity.class));
 
@@ -108,6 +113,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     password = response.body().getPassword();
                     major = response.body().getMajor() ;
                     student_id = response.body().getStudent_id();
+                    myApp.setLogin_type("mentee");
+                    myApp.setEmail(email);
                     Toast.makeText(LoginActivity.this, "멘티로 로그인되었습니다.", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginActivity.this, MenteeMainActivity.class));
 

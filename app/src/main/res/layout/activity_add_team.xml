@@ -39,7 +39,6 @@
             android:layout_height="49dp"
             android:ems="10"
             android:hint="주제"
-            android:inputType="textPassword"
             app:layout_constraintBottom_toTopOf="@+id/editTextTeamContent_addteam"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.504"

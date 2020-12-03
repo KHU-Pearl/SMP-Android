@@ -25,6 +25,9 @@ public class Mentee {
     @Expose
     @SerializedName("success") private Boolean success;
 
+    @Expose
+    @SerializedName("empty") private Boolean empty;
+
     public Boolean getEmpty() {
         return empty;
     }
@@ -32,9 +35,6 @@ public class Mentee {
     public void setEmpty(Boolean empty) {
         this.empty = empty;
     }
-
-    @Expose
-    @SerializedName("empty") private Boolean empty;
 
     public Boolean getSuccess() {
         return success;
