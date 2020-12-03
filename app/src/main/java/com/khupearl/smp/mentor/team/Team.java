@@ -18,7 +18,6 @@ public class Team {
 
     @Expose
     @SerializedName("empty") private Boolean empty;
-    private String subject;
 
     public Boolean getEmpty() {
         return empty;
@@ -28,9 +27,9 @@ public class Team {
         this.empty = empty;
     }
 
-    public Team(String name, String subject) {
+    public Team(String name, String title) {
         this.name = name;
-        this.subject = subject;
+        this.title = title;
     }
 
     public String getName() {
@@ -63,9 +62,5 @@ public class Team {
 
     public void setSuccess(Boolean success) {
         this.success = success;
-    }
-
-    public String getSubject() {
-        return subject;
     }
 }

@@ -51,7 +51,7 @@
                 android:padding="@dimen/layout_margin_size">
 
                 <TextView
-                    android:id="@+id/summarySubjectTextView"
+                    android:id="@+id/summaryTitleTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="팀 주제가 들어갈 자리"
@@ -71,7 +71,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/todoNumTextView"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/summarySubjectTextView" />
+                    app:layout_constraintTop_toBottomOf="@+id/summaryTitleTextView" />
 
 
                 <TextView
