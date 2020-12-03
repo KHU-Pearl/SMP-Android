@@ -51,7 +51,7 @@ public class MentorSignupActivity extends AppCompatActivity implements View.OnCl
                 String input_email = editText_email.getText().toString();
                 String input_password = editText_password.getText().toString();
                 String input_name = editText_name.getText().toString();
-                if(check_possible) Register(input_email,input_password, input_name);
+                if(check_possible) Register(input_email,input_name, input_password);
                 else Toast.makeText(MentorSignupActivity.this, "아이디 중복확인이 되지 않았습니다.", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.mentor_id_check_button:
@@ -90,9 +90,9 @@ public class MentorSignupActivity extends AppCompatActivity implements View.OnCl
             }
         });
     }
-    private void Register(String input_email, String input_password, String input_name) {
+    private void Register(String input_email, String input_name, String input_password) {
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        Call<Mentor> call = apiInterface.RegisterMentor(input_email, input_password, input_name);
+        Call<Mentor> call = apiInterface.RegisterMentor(input_email, input_name, input_password);
         call.enqueue(new Callback<Mentor>() {
             @Override
             public void onResponse(Call<Mentor> call, Response<Mentor> response) {
