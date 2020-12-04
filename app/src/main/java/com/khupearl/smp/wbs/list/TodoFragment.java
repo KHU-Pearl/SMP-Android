@@ -58,9 +58,6 @@ public class TodoFragment extends Fragment {
         wbsListRecyclerView.setLayoutManager(linearLayoutManager);
 
         getWorkList(teamName, wbsState);
-
-        workAdapter = new WorkAdapter(getActivity(), workArrayList);
-        wbsListRecyclerView.setAdapter(workAdapter);
     }
 
     private void getWorkList(final String team, final String wbsState) {

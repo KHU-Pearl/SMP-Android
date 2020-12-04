@@ -101,6 +101,13 @@ public interface ApiInterface {
             @Field("id") int id
     );
 
+    @FormUrlEncoded
+    @POST("wbs_change_state.php")
+    Call<Work> setState(
+            @Field("id") int id,
+            @Field("state") String state
+    );
+
 }
 
 //    다음에 쓰려고 적어둠 (사실 잘못적었는데 지우기 아까움)
