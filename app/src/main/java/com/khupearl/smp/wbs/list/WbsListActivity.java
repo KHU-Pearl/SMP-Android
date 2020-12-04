@@ -9,7 +9,6 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import com.khupearl.smp.SmpToolbar;
 import com.khupearl.smp.R;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -50,6 +49,16 @@ public class WbsListActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewpager_wbs);
         pagerAdapter = new WbsPagerAdapter(this);;
         viewPager.setAdapter(pagerAdapter);
+        viewPager.unregisterOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+
+            @Override
+            public void onPageSelected(int position) {
+
+                super.onPageSelected(position);
+                pagerAdapter.notifyItemChanged(position);
+            }
+
+        });
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tablayout_wbs);
         final List<String> tabElement = Arrays.asList("예정", "진행", "완료");
@@ -59,7 +68,6 @@ public class WbsListActivity extends AppCompatActivity {
                 tab.setText(tabElement.get(position));
             }
         }).attach();
-
     }
 
     private void setToolBar() {
@@ -77,19 +85,21 @@ public class WbsListActivity extends AppCompatActivity {
      */
     private class WbsPagerAdapter extends FragmentStateAdapter {
 
-        ArrayList<Fragment> fragments = new ArrayList<>();
-
         public WbsPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
             super(fragmentActivity);
-            fragments.add(new TodoFragment(teamName));
-            fragments.add(new InprogressFragment(teamName));
-            fragments.add(new DoneFragment(teamName));
         }
 
         @NonNull
         @Override
         public Fragment createFragment(int position) {
-            return fragments.get(position);
+            switch (position%NUM_PAGES) {
+                default:
+                    return new TodoFragment(teamName);
+                case 1:
+                    return new InprogressFragment(teamName);
+                case 2:
+                    return new DoneFragment(teamName);
+            }
         }
 
         @Override

@@ -48,7 +48,8 @@ public class WorkDetailActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void init() {
-        binding.changeStateButton.setText(nextState + "로 변경");
+//        StringBuilder sb = new StringBuilder().append(nextState).append("로 변경");
+//        binding.changeStateButton.setText(sb);
         binding.changeStateButton.setOnClickListener(this);
     }
 
@@ -96,6 +97,7 @@ public class WorkDetailActivity extends AppCompatActivity implements View.OnClic
         switch (v.getId()) {
             case R.id.changeStateButton:
                 changeWorkState(nextState);
+                Toast.makeText(this, "변경되었습니다.", Toast.LENGTH_SHORT).show();
                 break;
         }
 

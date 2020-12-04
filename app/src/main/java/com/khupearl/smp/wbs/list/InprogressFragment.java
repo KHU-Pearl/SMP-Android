@@ -60,6 +60,13 @@ public class InprogressFragment extends Fragment {
         getWorkList(teamName, wbsState);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        workArrayList= new ArrayList<>();
+        getWorkList(teamName, wbsState);
+    }
+
     private void getWorkList(final String team, final String wbsState) {
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
         Call<List<Work>> call = apiInterface.getWbsList(team, wbsState);
