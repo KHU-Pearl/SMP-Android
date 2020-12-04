@@ -26,7 +26,7 @@
         android:textColor="@color/white"
         android:textSize="@dimen/list_item_title_text_size"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textview_team_subject"
+        app:layout_constraintBottom_toTopOf="@+id/textview_team_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
     <!-- 진행바 추가 -->
 
     <TextView
-        android:id="@+id/textview_team_subject"
+        android:id="@+id/textview_team_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="팀 주제"

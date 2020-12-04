@@ -90,14 +90,22 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("wbs_team.php")
-    Call<List<Work>> getWbsListByTeam(
-            @Field("fk_team") String fk_team
+    Call<List<Work>> getWbsList(
+            @Field("fk_team") String fk_team,
+            @Field("state") String state
     );
 
     @FormUrlEncoded
     @POST("wbs_id.php")
     Call<Work> getWorkById(
             @Field("id") int id
+    );
+
+    @FormUrlEncoded
+    @POST("wbs_change_state.php")
+    Call<Work> setState(
+            @Field("id") int id,
+            @Field("state") String state
     );
 
 }

@@ -17,7 +17,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class WorkDetailActivity extends AppCompatActivity {
+public class WorkDetailActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "WorkDetailActivity";
 
@@ -25,6 +25,7 @@ public class WorkDetailActivity extends AppCompatActivity {
 
     private int wbsId;
     private int wbsIdDefault = -1;
+    private String nextState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,19 +34,28 @@ public class WorkDetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         wbsId = intent.getIntExtra("wbsId", wbsIdDefault);
+
         if (wbsId == -1) {
             Log.e(TAG, "failed to get wbs id");
             Toast.makeText(WorkDetailActivity.this, "정보를 가져오는데 실패했습니다.", Toast.LENGTH_SHORT).show();
             finish(); // wbs 가져오는데 실패함. 액티비티 종료.
         } else {
             Log.e(TAG, "success to get wbs id : " + wbsId);
-            getWorkDeatil(wbsId); // 레트로핏으로 서버에서 값을 받아옴
+            getWorkDeatil(); // 레트로핏으로 서버에서 값을 받아옴
         }
+
+        init();
     }
 
-    private void getWorkDeatil(int id) {
+    private void init() {
+//        StringBuilder sb = new StringBuilder().append(nextState).append("로 변경");
+//        binding.changeStateButton.setText(sb);
+        binding.changeStateButton.setOnClickListener(this);
+    }
+
+    private void getWorkDeatil() {
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        Call<Work> call = apiInterface.getWorkById(id);
+        Call<Work> call = apiInterface.getWorkById(wbsId);
         call.enqueue(new Callback<Work>() {
             @Override
             public void onResponse(Call<Work> call, Response<Work> response) {
@@ -54,6 +64,13 @@ public class WorkDetailActivity extends AppCompatActivity {
                     setToolBar(response.body().getTitle());
                     binding.contentDetailTextView.setText(response.body().getContent());
                     binding.fieldDetailTextView.setText(response.body().getField());
+                    binding.timeDetailTextView.setText(response.body().getDate());
+                    // TODO: 04/12/2020 투입인력 추가
+
+                    String text = response.body().getState();
+                    if (text.equals("예정")) nextState = "진행";
+                    else if (text.equals("진행")) nextState = "완료";
+                    else nextState = "예정";
                     Log.e(TAG, "서버성공 : (title) " + response.body().getTitle());
                 }
             }
@@ -73,5 +90,35 @@ public class WorkDetailActivity extends AppCompatActivity {
             }
         });
         binding.wbsDetailToolbar.setTitleTextView(title);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.changeStateButton:
+                changeWorkState(nextState);
+                Toast.makeText(this, "변경되었습니다.", Toast.LENGTH_SHORT).show();
+                break;
+        }
+
+    }
+
+    private void changeWorkState(String nextState) {
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<Work> call = apiInterface.setState(wbsId, nextState);
+        call.enqueue(new Callback<Work>() {
+            @Override
+            public void onResponse(Call<Work> call, Response<Work> response) {
+                if (response.body().isSuccess())
+                {
+                    Log.e(TAG, "state 변경 성공!");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Work> call, Throwable t) {
+                Log.e(TAG, "서버에러 : " + t.getMessage());
+            }
+        });
     }
 }

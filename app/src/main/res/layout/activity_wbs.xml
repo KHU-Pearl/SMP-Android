@@ -1,63 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <com.khupearl.smp.SmpToolbar
         android:id="@+id/wbsListToolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="wrap_content" />
 
-<!--  button수정 필요함!!!! checkbox로 하던가,, radio 로 하던가,, 걍 네비게이션이 나을거같기도하고  -->
-    <Button
-        android:id="@+id/switch1"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_graybutton"
-        android:text="예정"
-        android:layout_marginLeft="@dimen/layout_margin_size"
-        android:layout_marginTop="@dimen/layout_margin_size"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerview_wbslist"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wbsListToolbar" />
-
-    <Button
-        android:id="@+id/switch2"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_listitem"
-        android:text="진행"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/switch1"
-        app:layout_constraintEnd_toStartOf="@+id/switch3"
-        app:layout_constraintStart_toEndOf="@+id/switch1"
-        app:layout_constraintTop_toTopOf="@+id/switch1" />
-
-    <Button
-        android:id="@+id/switch3"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/layout_margin_size"
-        android:background="@drawable/bg_graybutton"
-        android:text="완료"
-        app:layout_constraintBottom_toBottomOf="@+id/switch2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/switch2" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_wbslist"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tablayout_wbs"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="@dimen/layout_margin_size"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager_wbs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

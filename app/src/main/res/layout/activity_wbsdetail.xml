@@ -120,7 +120,7 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_listitem"
-        android:text="완  료"
+        android:text="진행상태변경"
         android:textColor="@color/white"
         android:layout_margin="@dimen/layout_margin_size"
         app:layout_constraintBottom_toBottomOf="parent"

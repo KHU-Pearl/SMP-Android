@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.khupearl.smp.R;
 import com.khupearl.smp.databinding.ActivityMenteeMainBinding;
-import com.khupearl.smp.wbs.WbsListActivity;
+import com.khupearl.smp.wbs.list.WbsListActivity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
