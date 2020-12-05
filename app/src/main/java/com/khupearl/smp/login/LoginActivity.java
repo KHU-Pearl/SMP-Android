@@ -82,8 +82,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     password = response.body().getPassword();
                     myApp.setLogin_type("mentor");
                     myApp.setEmail(email);
+
+                    Intent intent = new Intent(LoginActivity.this, MentorMainActivity.class);
+                    intent.putExtra("mentorName", name);
+                    startActivity(intent);
                     Toast.makeText(LoginActivity.this, "멘토로 로그인되었습니다.", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(LoginActivity.this, TeamListActivity.class));
 
                     finish();
                 }
@@ -117,8 +120,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     myApp.setLogin_type("mentee");
                     myApp.setEmail(email);
                     myApp.setTeamName(fk_team);
-                    Toast.makeText(LoginActivity.this, "멘티로 로그인되었습니다.", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginActivity.this, MenteeMainActivity.class));
+                    Toast.makeText(LoginActivity.this, "멘티로 로그인되었습니다.", Toast.LENGTH_SHORT).show();
 
                     finish();
                 }
