@@ -26,6 +26,8 @@ public class WorkAdapter extends RecyclerView.Adapter<WorkAdapter.WorkViewHolder
     
     private Context context;
     private ArrayList<Work> workArrayList;
+
+    private boolean isDateNull = false;
     
     public WorkAdapter(Context context, ArrayList<Work> workArrayList) {
         this.context = context;
@@ -47,7 +49,14 @@ public class WorkAdapter extends RecyclerView.Adapter<WorkAdapter.WorkViewHolder
         holder.workFieldTextView.setText(work.getField());
 
         try {
-            holder.ddayTextView.setText("D" + getDday(work));
+            long dday = getDday(work);
+            if (isDateNull) {
+                holder.ddayTextView.setText(""); // 종료날짜 없으면 디데이 표시 X
+                isDateNull = false;
+            } else {
+                holder.ddayTextView.setText("D" + dday);
+            }
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -82,6 +91,10 @@ public class WorkAdapter extends RecyclerView.Adapter<WorkAdapter.WorkViewHolder
             // Date 형으로 변환
             Date todayDate = simpleDateFormat.parse(today);
             String workDate = work.getDate();
+            if (workDate == null) {
+                isDateNull = true;
+                return -1;
+            }
             Date dueDate = simpleDateFormat.parse(workDate);
 
             long calDate = todayDate.getTime() - dueDate.getTime(); // 계산결과가 '초'로 나옴
