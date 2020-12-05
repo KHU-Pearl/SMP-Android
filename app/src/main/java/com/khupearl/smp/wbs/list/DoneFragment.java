@@ -56,14 +56,12 @@ public class DoneFragment extends Fragment {
         wbsListRecyclerView = view.findViewById(R.id.recyclerview_wbs_done);
         linearLayoutManager = new LinearLayoutManager(getActivity());
         wbsListRecyclerView.setLayoutManager(linearLayoutManager);
-
-        getWorkList(teamName, wbsState);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        workArrayList= new ArrayList<>();
+        workArrayList.clear();
         getWorkList(teamName, wbsState);
     }
 
