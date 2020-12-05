@@ -8,12 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.khupearl.smp.R;
 import com.khupearl.smp.api.ApiClient;
 import com.khupearl.smp.api.ApiInterface;
-import com.khupearl.smp.wbs.Work;
+import com.khupearl.smp.mentee.Progress;
 import com.khupearl.smp.wbs.list.WbsListActivity;
 
 import java.util.ArrayList;
@@ -72,10 +71,10 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamViewHolder
 
     private void setProgressByTeamName(@NonNull final TeamViewHolder holder, final Team team) {
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        Call<Work> call = apiInterface.getTeamCountWbs(team.getName());
-        call.enqueue(new Callback<Work>() {
+        Call<Progress> call = apiInterface.getTeamCountWbs(team.getName());
+        call.enqueue(new Callback<Progress>() {
             @Override
-            public void onResponse(Call<Work> call, Response<Work> response) {
+            public void onResponse(Call<Progress> call, Response<Progress> response) {
                 if(response.body().isSuccess())
                 {
                     int maxCnt = Integer.parseInt(response.body().getCount_todo())
@@ -84,6 +83,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamViewHolder
                     int progressCnt = Integer.parseInt(response.body().getCount_done());
                     holder.teamProgressBar.setProgress(progressCnt);
                     holder.teamProgressBar.setMax(maxCnt);
+                    holder.progressTextView.setText(response.body().getProgress() + "%");
                 }
                 else
                 {
@@ -92,7 +92,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamViewHolder
             }
 
             @Override
-            public void onFailure(Call<Work> call, Throwable t) {
+            public void onFailure(Call<Progress> call, Throwable t) {
                 Log.e(TAG, "서버 실패!");
             }
         });
@@ -102,6 +102,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamViewHolder
         TextView teamNameTextView;
         TextView teamTitleTextView;
         ProgressBar teamProgressBar;
+        TextView progressTextView;
         View itemView;
 
         public TeamViewHolder(@NonNull View itemView) {
@@ -112,6 +113,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamViewHolder
             teamNameTextView = itemView.findViewById(R.id.textview_team_name);
             teamTitleTextView = itemView.findViewById(R.id.textview_team_title);
             teamProgressBar = itemView.findViewById(R.id.progressbar_team);
+            progressTextView = itemView.findViewById(R.id.textview_team_progress);
         }
     }
 }

@@ -87,10 +87,10 @@ public class MenteeMainActivity extends AppCompatActivity implements View.OnClic
 
     private void getTeamCountWbs() {
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        Call<Work> call = apiInterface.getTeamCountWbs(myApplication.getTeamName());
-        call.enqueue(new Callback<Work>() {
+        Call<Progress> call = apiInterface.getTeamCountWbs(myApplication.getTeamName());
+        call.enqueue(new Callback<Progress>() {
             @Override
-            public void onResponse(Call<Work> call, Response<Work> response) {
+            public void onResponse(Call<Progress> call, Response<Progress> response) {
                 if(response.body().isSuccess())
                 {
                     binding.todoNumTextView.setText(response.body().getCount_todo());
@@ -112,7 +112,7 @@ public class MenteeMainActivity extends AppCompatActivity implements View.OnClic
             }
 
             @Override
-            public void onFailure(Call<Work> call, Throwable t) {
+            public void onFailure(Call<Progress> call, Throwable t) {
                 Toast.makeText(MenteeMainActivity.this, "서버 실패!", Toast.LENGTH_SHORT).show();
             }
         });
