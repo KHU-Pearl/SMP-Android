@@ -109,6 +109,12 @@ public interface ApiInterface {
     );
 
     @FormUrlEncoded
+    @POST("mentor_teamlist.php")
+    Call<Mentor> getTeamListByMentor(
+            @Field("email") String email
+    );
+
+    @FormUrlEncoded
     @POST("wbs_team.php")
     Call<List<Work>> getWbsList(
             @Field("fk_team") String fk_team,
