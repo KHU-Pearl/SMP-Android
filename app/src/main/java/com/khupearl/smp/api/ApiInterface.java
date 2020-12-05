@@ -3,6 +3,7 @@ package com.khupearl.smp.api;
 import com.khupearl.smp.mentee.Mentee;
 import com.khupearl.smp.mentor.Mentor;
 import com.khupearl.smp.mentor.team.Team;
+import com.khupearl.smp.notice.Notice;
 import com.khupearl.smp.wbs.Work;
 
 import java.util.List;
@@ -145,4 +146,12 @@ public interface ApiInterface {
     Call<Work> getTeamCountWbs(
             @Field("fk_team") String fk_team
     );
+
+    @FormUrlEncoded
+    @POST("mentee_notice_list.php")
+    Call<Mentee> mentee_notice_list(
+            @Field("fk_team") String fk_team
+    );
+
+
 }
