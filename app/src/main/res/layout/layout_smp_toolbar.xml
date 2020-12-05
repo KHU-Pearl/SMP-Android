@@ -30,6 +30,21 @@
         app:layout_constraintStart_toEndOf="@+id/toolbarLeftButton"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/toolbarBadgeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/layout_margin_size"
+        android:background="@drawable/bg_whitebox"
+        android:padding="10dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="@dimen/list_item_content_text_size"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/toolbarTitleTextView"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/toolbarRightButton"
         android:layout_width="wrap_content"
