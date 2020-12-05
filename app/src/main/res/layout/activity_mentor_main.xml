@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/layout_margin_size">
+
+                <com.khupearl.smp.SmpToolbar
+                    android:id="@+id/mentorMainToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/mentorNameTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_size"
+                    android:layout_gravity="center_horizontal"
+                    android:text="멘토 이름"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/team_name_text_size" />
+
+                <View
+                    android:id="@+id/teamNameLineView"
+                    android:layout_width="80dp"
+                    android:layout_height="3dp"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginBottom="@dimen/layout_margin_size"
+                    android:layout_gravity="center_horizontal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_size"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/menteeListConstraintLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_github_button"
+                        android:clickable="true"
+                        android:layout_marginRight="@dimen/vertical_margin_size"
+                        android:layout_weight="1"
+                        android:padding="@dimen/vertical_margin_size" >
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_mentee_list"
+                            app:layout_constraintWidth_percent="0.4"
+                            android:adjustViewBounds="true"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/menteeListTextView"/>
+
+                        <TextView
+                            android:id="@+id/menteeListTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/vertical_margin_size"
+                            android:text="멘티 목록"
+                            android:textSize="@dimen/team_title_text_size"
+                            android:textColor="@color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/noticeConstraintLayout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_github_button"
+                        android:clickable="true"
+                        android:layout_marginLeft="@dimen/vertical_margin_size"
+                        android:layout_weight="1"
+                        android:padding="@dimen/vertical_margin_size" >
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_notice"
+                            app:layout_constraintWidth_percent="0.4"
+                            android:adjustViewBounds="true"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/noticeTextView" />
+
+                        <TextView
+                            android:id="@+id/noticeTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/vertical_margin_size"
+                            android:text="공지사항"
+                            android:textSize="@dimen/team_title_text_size"
+                            android:textColor="@color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

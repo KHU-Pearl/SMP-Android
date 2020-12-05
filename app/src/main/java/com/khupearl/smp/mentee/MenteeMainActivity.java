@@ -104,8 +104,6 @@ public class MenteeMainActivity extends AppCompatActivity implements View.OnClic
 
                     binding.menteeProgressBar.setProgress(progressCnt);
                     binding.menteeProgressBar.setMax(maxCnt);
-
-                    Toast.makeText(MenteeMainActivity.this, "할 일이 추가되었습니다." + response.body().getCount_todo(), Toast.LENGTH_SHORT).show();
                 }
                 else
                 {

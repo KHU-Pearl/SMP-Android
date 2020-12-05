@@ -28,6 +28,7 @@
         <activity android:name=".wbs.WorkDetailActivity" />
         <activity android:name=".login.MentorSignupActivity"/>
         <activity android:name=".mentor.team.AddTeamActivity"/>
+        <activity android:name=".mentor.MentorMainActivity" />
         <activity android:name=".wbs.AddWorkActivity"
             android:windowSoftInputMode="adjustResize"/>
     </application>
