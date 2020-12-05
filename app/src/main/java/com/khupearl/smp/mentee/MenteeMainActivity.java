@@ -2,6 +2,7 @@ package com.khupearl.smp.mentee;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -11,12 +12,16 @@ import com.khupearl.smp.api.ApiClient;
 import com.khupearl.smp.api.ApiInterface;
 import com.khupearl.smp.databinding.ActivityMenteeMainBinding;
 import com.khupearl.smp.mentor.team.Team;
+import com.khupearl.smp.notice.Notice;
 import com.khupearl.smp.wbs.Work;
 import com.khupearl.smp.wbs.list.WbsListActivity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -117,10 +122,44 @@ public class MenteeMainActivity extends AppCompatActivity implements View.OnClic
             }
         });
     }
+    private void get_notice_list(){
+        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        Call<Mentee> call = apiInterface.mentee_notice_list(myApplication.getTeamName());
+        call.enqueue(new Callback<Mentee>() {
+            @Override
+            public void onResponse(Call<Mentee> call, Response<Mentee> response) {
+                if(response.body().getSuccess())
+                {
+                    String s = "";
+                    int m = 3;
+                    if(response.body().getNotices().size()<3) m =response.body().getNotices().size();
+                    for(int i = 0; i < m; i ++){
+                        s +=response.body().getNotices().get(i).getTitle();
+                        if(i!=m-1)  s+="\n";
+                    }
+//                    for (Notice n : response.body().getNotices()) {
+//                        Toast.makeText(MenteeMainActivity.this, n.getTitle(), Toast.LENGTH_SHORT).show();
+//                    }
+                    binding.noticeContentTextView.setText(s);
+
+                }
+                else
+                {
+                    Toast.makeText(MenteeMainActivity.this, "서버실패", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Mentee> call, Throwable t) {
+                Toast.makeText(MenteeMainActivity.this, "서버실패"+t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     @Override
     protected void onResume() {
         super.onResume();
         init();
+        get_notice_list();
     }
 }
