@@ -27,6 +27,15 @@ public class Work {
     @Expose
     @SerializedName("success") private boolean success;
 
+    @Expose
+    @SerializedName("count_todo") private String count_todo;
+
+    @Expose
+    @SerializedName("count_inprogress") private String count_inprogress;
+
+    @Expose
+    @SerializedName("count_done") private String count_done;
+
     public Work(String title, String field, int id) {
         this.title = title;
         this.field = field;
@@ -119,5 +128,29 @@ public class Work {
 
     public void setSuccess(boolean success) {
         this.success = success;
+    }
+
+    public String getCount_todo() {
+        return count_todo;
+    }
+
+    public void setCount_todo(String count_todo) {
+        this.count_todo = count_todo;
+    }
+
+    public String getCount_inprogress() {
+        return count_inprogress;
+    }
+
+    public void setCount_inprogress(String count_inprogress) {
+        this.count_inprogress = count_inprogress;
+    }
+
+    public String getCount_done() {
+        return count_done;
+    }
+
+    public void setCount_done(String count_done) {
+        this.count_done = count_done;
     }
 }
