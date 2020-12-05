@@ -41,7 +41,7 @@ public class WorkDetailActivity extends AppCompatActivity implements View.OnClic
             finish(); // wbs 가져오는데 실패함. 액티비티 종료.
         } else {
             Log.e(TAG, "success to get wbs id : " + wbsId);
-            getWorkDeatil(); // 레트로핏으로 서버에서 값을 받아옴
+            getWorkDeatil(); // 레트로핏으로 서버에서 값을 받아서 View에 적
         }
 
         init();
@@ -68,6 +68,8 @@ public class WorkDetailActivity extends AppCompatActivity implements View.OnClic
                     // TODO: 04/12/2020 투입인력 추가
 
                     String text = response.body().getState();
+                    binding.wbsDetailToolbar.setToolbarBadgeTextView(text);
+
                     if (text.equals("예정")) nextState = "진행";
                     else if (text.equals("진행")) nextState = "완료";
                     else nextState = "예정";
@@ -97,13 +99,12 @@ public class WorkDetailActivity extends AppCompatActivity implements View.OnClic
         switch (v.getId()) {
             case R.id.changeStateButton:
                 changeWorkState(nextState);
-                Toast.makeText(this, "변경되었습니다.", Toast.LENGTH_SHORT).show();
                 break;
         }
 
     }
 
-    private void changeWorkState(String nextState) {
+    private void changeWorkState(final String nextState) {
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
         Call<Work> call = apiInterface.setState(wbsId, nextState);
         call.enqueue(new Callback<Work>() {
@@ -111,12 +112,17 @@ public class WorkDetailActivity extends AppCompatActivity implements View.OnClic
             public void onResponse(Call<Work> call, Response<Work> response) {
                 if (response.body().isSuccess())
                 {
+                    binding.wbsDetailToolbar.setToolbarBadgeTextView(nextState);
+                    Toast.makeText(WorkDetailActivity.this, "변경되었습니다.", Toast.LENGTH_SHORT).show();
                     Log.e(TAG, "state 변경 성공!");
+
+                    getWorkDeatil(); // 화면 갱
                 }
             }
 
             @Override
             public void onFailure(Call<Work> call, Throwable t) {
+                Toast.makeText(WorkDetailActivity.this, "변경되지않았습니다.", Toast.LENGTH_SHORT).show();
                 Log.e(TAG, "서버에러 : " + t.getMessage());
             }
         });

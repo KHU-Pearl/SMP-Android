@@ -17,6 +17,7 @@ public class SmpToolbar extends ConstraintLayout {
     private ImageButton toolbarLeftButton;
     private ImageButton toolbarRightButton;
     private TextView toolbarTitleTextView;
+    private TextView toolbarBadgeTextView;
 
     public SmpToolbar(@NonNull Context context) {
         super(context);
@@ -41,9 +42,11 @@ public class SmpToolbar extends ConstraintLayout {
         toolbarLeftButton = view.findViewById(R.id.toolbarLeftButton);
         toolbarRightButton = view.findViewById(R.id.toolbarRightButton);
         toolbarTitleTextView = view.findViewById(R.id.toolbarTitleTextView);
+        toolbarBadgeTextView = view.findViewById(R.id.toolbarBadgeTextView);
 
         toolbarRightButton.setVisibility(View.GONE);
         toolbarTitleTextView.setVisibility(View.INVISIBLE);
+        toolbarBadgeTextView.setVisibility(View.INVISIBLE);
     }
 
     public void setLeftButton(int imageResource, final OnClickListener onClickListener) {
@@ -54,6 +57,11 @@ public class SmpToolbar extends ConstraintLayout {
     public void setTitleTextView(String text) {
         toolbarTitleTextView.setText(text);
         toolbarTitleTextView.setVisibility(View.VISIBLE);
+    }
+
+    public void setToolbarBadgeTextView(String text) {
+        toolbarBadgeTextView.setText(text);
+        toolbarBadgeTextView.setVisibility(View.VISIBLE);
     }
 
     public void setRightButton(int imageResource, final OnClickListener onClickListener) {
