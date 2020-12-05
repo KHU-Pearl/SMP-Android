@@ -2,6 +2,7 @@ package com.khupearl.smp.mentor;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.khupearl.smp.mentor.team.Team;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ public class Mentor {
     @SerializedName("password") private String password;
 
     @Expose
-    @SerializedName("teams") private List<String> teams = new ArrayList<String>();
+    @SerializedName("teams") private List<Team> teams = new ArrayList<Team>();
 
     @Expose
     @SerializedName("success") private Boolean success;
@@ -57,11 +58,11 @@ public class Mentor {
         this.password = password;
     }
 
-    public List<String> getTeams() {
+    public List<Team> getTeams() {
         return teams;
     }
 
-    public void setTeams(List<String> teams) {
+    public void setTeams(List<Team> teams) {
         this.teams = teams;
     }
 
