@@ -10,10 +10,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
-
-import retrofit2.http.Query;
 
 public interface ApiInterface {
     @FormUrlEncoded
@@ -55,6 +52,13 @@ public interface ApiInterface {
             @Field("email") String email
     );
 
+    @FormUrlEncoded
+    @POST("Register_team_member_possible.php")
+    Call<Mentee> RegisterTeamMemberPossible(
+            @Field("email") String email,
+            @Field("fk_team") String fk_team
+    );
+
 //    @FormUrlEncoded
 //    @POST("addteam_name_possible.php")
 //    Call<Mentee> AddTeamMemberPossible(
@@ -87,6 +91,22 @@ public interface ApiInterface {
             @Field("name") String name
     );
 
+    @FormUrlEncoded
+    @POST("add_work.php")
+    Call<Work> AddWork(
+            @Field("fk_team") String fk_team,
+            @Field("title") String title,
+            @Field("content") String content,
+            @Field("field") String field,
+            @Field("date") String date
+    );
+
+    @FormUrlEncoded
+    @POST("add_work_members.php")
+    Call<Work> AddWorkMembers(
+            @Field("wbs_id") int wbs_id,
+            @Field("mentee_email") String meentee_email
+    );
 
     @FormUrlEncoded
     @POST("wbs_team.php")
@@ -109,10 +129,3 @@ public interface ApiInterface {
     );
 
 }
-
-//    다음에 쓰려고 적어둠 (사실 잘못적었는데 지우기 아까움)
-//
-//    @Query("fk_team") String fk_team,
-//    @Query("title") String title,
-//    @Query("content") String content,
-//    @Query("field") String field,
