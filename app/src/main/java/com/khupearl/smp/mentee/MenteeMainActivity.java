@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.khupearl.smp.MyApplication;
 import com.khupearl.smp.R;
 import com.khupearl.smp.databinding.ActivityMenteeMainBinding;
 import com.khupearl.smp.wbs.list.WbsListActivity;
@@ -15,6 +16,7 @@ import androidx.databinding.DataBindingUtil;
 public class MenteeMainActivity extends AppCompatActivity implements View.OnClickListener {
 
     ActivityMenteeMainBinding binding;
+    MyApplication myApplication;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -22,8 +24,14 @@ public class MenteeMainActivity extends AppCompatActivity implements View.OnClic
         binding = DataBindingUtil.setContentView(this, R.layout.activity_mentee_main);
 
         binding.summaryConstraintlayout.setOnClickListener(this);
+        myApplication = (MyApplication)getApplication();
 
         setToolBar();
+        init();
+    }
+
+    void init() {
+        binding.teamNameTextView.setText(myApplication.getTeamName());
     }
 
     @Override
@@ -31,8 +39,7 @@ public class MenteeMainActivity extends AppCompatActivity implements View.OnClic
         switch(view.getId()) {
             case R.id.summaryConstraintlayout:
                 Intent intent = new Intent(MenteeMainActivity.this, WbsListActivity.class);
-                // TODO: 02/12/2020 teamname 하드코딩된부분 수정해야됨
-                intent.putExtra("teamName", "진주라디오");
+                intent.putExtra("teamName", myApplication.getTeamName());
                 view.getContext().startActivity(intent);
                 break;
         }

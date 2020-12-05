@@ -44,8 +44,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.TeamViewHolder
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, WbsListActivity.class);
-//                intent.putExtra("position", position);
-//                intent.putExtra("teamName", Team.getName());
+                intent.putExtra("teamName", Team.getName());
                 context.startActivity(intent);
             }
         });

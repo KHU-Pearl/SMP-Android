@@ -115,6 +115,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     student_id = response.body().getStudent_id();
                     myApp.setLogin_type("mentee");
                     myApp.setEmail(email);
+                    myApp.setTeamName(fk_team);
                     Toast.makeText(LoginActivity.this, "멘티로 로그인되었습니다.", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(LoginActivity.this, MenteeMainActivity.class));
 

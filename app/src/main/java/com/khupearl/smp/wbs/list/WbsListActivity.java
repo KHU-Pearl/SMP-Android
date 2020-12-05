@@ -6,8 +6,12 @@ import android.view.View;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
+import com.khupearl.smp.MyApplication;
 import com.khupearl.smp.SmpToolbar;
 import com.khupearl.smp.R;
+import com.khupearl.smp.mentor.team.AddTeamActivity;
+import com.khupearl.smp.mentor.team.TeamListActivity;
+import com.khupearl.smp.wbs.AddWorkActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,6 +25,8 @@ import androidx.viewpager2.widget.ViewPager2;
 
 public class WbsListActivity extends AppCompatActivity {
     private static final String TAG = "WbsListActivity";
+
+    MyApplication myApplication;
 
     private static final int NUM_PAGES = 3; // fragment 개수
     private ViewPager2 viewPager;
@@ -37,6 +43,9 @@ public class WbsListActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         teamName = intent.getStringExtra("teamName");
+
+        myApplication = (MyApplication)getApplication();
+        myApplication.setTeamName(teamName); // 멘토는 여기서 접속한 팀이름 설정됨
 
         initView();
     }
@@ -76,6 +85,12 @@ public class WbsListActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+        toolbar.setRightButton(R.drawable.ic_baseline_add_24, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(WbsListActivity.this, AddWorkActivity.class));
             }
         });
     }
