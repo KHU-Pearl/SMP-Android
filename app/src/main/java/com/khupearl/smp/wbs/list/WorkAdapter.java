@@ -2,6 +2,7 @@ package com.khupearl.smp.wbs.list;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,12 @@ import com.khupearl.smp.R;
 import com.khupearl.smp.wbs.Work;
 import com.khupearl.smp.wbs.WorkDetailActivity;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,12 +41,17 @@ public class WorkAdapter extends RecyclerView.Adapter<WorkAdapter.WorkViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull WorkAdapter.WorkViewHolder holder, int position) {
-        // TODO: 12/11/2020 d-day time이랑 현재날짜 계산해서 표시 
-
         final Work work = workArrayList.get(position);
 
         holder.workNameTextView.setText(work.getTitle());
         holder.workFieldTextView.setText(work.getField());
+
+        try {
+            holder.ddayTextView.setText("D" + getDday(work));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +69,32 @@ public class WorkAdapter extends RecyclerView.Adapter<WorkAdapter.WorkViewHolder
             return workArrayList.size();
         }
         return 0;
+    }
+
+    private long getDday(Work work) throws ParseException {
+        long result = 0;
+        try {
+            long now = System.currentTimeMillis();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = new Date(now);
+            String today = simpleDateFormat.format(date);
+
+            // Date 형으로 변환
+            Date todayDate = simpleDateFormat.parse(today);
+            String workDate = work.getDate();
+            Date dueDate = simpleDateFormat.parse(workDate);
+
+            long calDate = todayDate.getTime() - dueDate.getTime(); // 계산결과가 '초'로 나옴
+            result = calDate / (24 * 60 * 60 * 1000); // 일수로 변환
+
+        } catch (ParseException e) {
+            StringWriter sw = new StringWriter();
+            e.printStackTrace(new PrintWriter(sw));
+            String exceptionAsStrting = sw.toString();
+
+            Log.e("WorkAdapter", exceptionAsStrting);
+        }
+        return result;
     }
 
     public class WorkViewHolder extends RecyclerView.ViewHolder {
