@@ -128,4 +128,15 @@ public interface ApiInterface {
             @Field("state") String state
     );
 
+    @FormUrlEncoded
+    @POST("Get_team_info.php")
+    Call<Team> getTeamInfo(
+            @Field("name") String name
+    );
+
+    @FormUrlEncoded
+    @POST("Get_team_count_wbs.php")
+    Call<Work> getTeamCountWbs(
+            @Field("fk_team") String fk_team
+    );
 }

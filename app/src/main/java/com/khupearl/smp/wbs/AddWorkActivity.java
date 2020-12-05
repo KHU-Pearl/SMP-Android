@@ -147,7 +147,7 @@ public class AddWorkActivity extends AppCompatActivity implements View.OnClickLi
                 if(response.body().isSuccess())
                 {
                     addTeamMember(response.body().getId()); // 참여멤버추가
-                    Toast.makeText(AddWorkActivity.this, "할 일이 추가되었습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddWorkActivity.this, "추가되었습니다.", Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -160,8 +160,6 @@ public class AddWorkActivity extends AppCompatActivity implements View.OnClickLi
                 Toast.makeText(AddWorkActivity.this, "서버 실패!", Toast.LENGTH_SHORT).show();
             }
         });
-
-        Toast.makeText(AddWorkActivity.this, "추가되었습니다.", Toast.LENGTH_SHORT).show();
     }
 
     private void addTeamMember(int id) {
@@ -174,7 +172,7 @@ public class AddWorkActivity extends AppCompatActivity implements View.OnClickLi
                 public void onResponse(Call<Work> call, Response<Work> response) {
                     if(response.body().isSuccess())
                     {
-                        Toast.makeText(AddWorkActivity.this, "멤버가 추가되었습니다.", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(AddWorkActivity.this, "멤버가 추가되었습니다.", Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
