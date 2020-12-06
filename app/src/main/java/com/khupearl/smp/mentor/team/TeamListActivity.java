@@ -11,7 +11,9 @@ import com.khupearl.smp.R;
 import com.khupearl.smp.SmpToolbar;
 import com.khupearl.smp.api.ApiClient;
 import com.khupearl.smp.api.ApiInterface;
+import com.khupearl.smp.mentee.MenteeMainActivity;
 import com.khupearl.smp.mentor.Mentor;
+import com.khupearl.smp.wbs.Work;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +49,7 @@ public class TeamListActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setMenteeTemp();
+        setTeamList();
     }
 
     private void initView() {
@@ -61,7 +63,8 @@ public class TeamListActivity extends AppCompatActivity {
 
         setToolBar();
     }
-    private void setMenteeTemp() {
+
+    private void setTeamList() {
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
         Call<Mentor> call = apiInterface.getTeamListByMentor(myApp.getEmail());
         call.enqueue(new Callback<Mentor>() {
@@ -87,21 +90,6 @@ public class TeamListActivity extends AppCompatActivity {
                 Toast.makeText(TeamListActivity.this, "서버 실패!.", Toast.LENGTH_SHORT).show();
             }
         });
-
-    }
-    private void setMenteeTemp1() {
-        // TODO: 02/12/2020 DB연결
-//        menteeArrayList.add(new Team("진주라디오", "4차 산업 어쩌구"));
-//        menteeArrayList.add(new Team("진주티비", "4차 산업 어쩌구"));
-//        menteeArrayList.add(new Team("진주핸드폰", "4차 산업 어쩌구"));
-        for(int i = 0; i < t.size(); i++){
-            menteeArrayList.add(new Team(t.get(i).getName(),t.get(i).getTitle()));
-            Toast.makeText(TeamListActivity.this, t.get(i).getName(), Toast.LENGTH_SHORT).show();
-
-        }
-
-
-
     }
 
     private void setToolBar() {

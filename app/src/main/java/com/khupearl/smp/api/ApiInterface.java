@@ -1,6 +1,7 @@
 package com.khupearl.smp.api;
 
 import com.khupearl.smp.mentee.Mentee;
+import com.khupearl.smp.mentee.Progress;
 import com.khupearl.smp.mentor.Mentor;
 import com.khupearl.smp.mentor.team.Team;
 import com.khupearl.smp.notice.Notice;
@@ -143,7 +144,7 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("Get_team_count_wbs.php")
-    Call<Work> getTeamCountWbs(
+    Call<Progress> getTeamCountWbs(
             @Field("fk_team") String fk_team
     );
 
