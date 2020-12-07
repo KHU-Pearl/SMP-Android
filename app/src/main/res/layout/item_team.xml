@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textview_mentee_name"
+        android:id="@+id/textview_team_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -26,16 +26,28 @@
         android:textColor="@color/white"
         android:textSize="@dimen/list_item_title_text_size"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textview_mentee_subject"
+        app:layout_constraintBottom_toTopOf="@+id/progressbar_team"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- 진행바 추가 -->
+    <ProgressBar
+        android:id="@+id/progressbar_team"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/vertical_margin_size"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:progress="7"
+        android:max="10"
+        android:layout_marginRight="@dimen/layout_margin_size"
+        app:layout_constraintBottom_toTopOf="@+id/textview_team_title"
+        app:layout_constraintEnd_toStartOf="@id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_team_name" />
 
     <TextView
-        android:id="@+id/textview_mentee_subject"
+        android:id="@+id/textview_team_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="팀 주제"
@@ -45,6 +57,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_mentee_name" />
+        app:layout_constraintTop_toBottomOf="@id/progressbar_team" />
+
+    <TextView
+        android:id="@+id/textview_team_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:text="00%"
+        android:textColor="@color/white"
+        android:textSize="@dimen/list_title_text_size"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

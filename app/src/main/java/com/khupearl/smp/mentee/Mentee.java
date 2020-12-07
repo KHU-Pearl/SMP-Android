@@ -1,6 +1,9 @@
-package com.khupearl.smp;
+package com.khupearl.smp.mentee;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.khupearl.smp.notice.Notice;
+
+import java.util.List;
 
 
 public class Mentee {
@@ -20,10 +23,32 @@ public class Mentee {
     @SerializedName("major") private String major;
 
     @Expose
-    @SerializedName("student_id") private String student_id;
+    @SerializedName("student_id") private int student_id;
+
+    @Expose
+    @SerializedName("notices") private List<Notice> notices;
 
     @Expose
     @SerializedName("success") private Boolean success;
+
+    @Expose
+    @SerializedName("empty") private Boolean empty;
+
+    public Boolean getEmpty() {
+        return empty;
+    }
+
+    public void setEmpty(Boolean empty) {
+        this.empty = empty;
+    }
+
+    public List<Notice> getNotices() {
+        return notices;
+    }
+
+    public void setNotices(List<Notice> notices) {
+        this.notices = notices;
+    }
 
     public Boolean getSuccess() {
         return success;
@@ -73,11 +98,11 @@ public class Mentee {
         this.major = major;
     }
 
-    public String getStudent_id() {
+    public int getStudent_id() {
         return student_id;
     }
 
-    public void setStudent_id(String student_id) {
+    public void setStudent_id(int student_id) {
         this.student_id = student_id;
     }
 }

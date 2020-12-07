@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
+        android:name=".MyApplication"
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,13 +21,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".login.LoginActivity" />
-        <activity android:name=".login.SignupActivity"/>
-        <activity android:name=".mentor.team.MenteeListActivity" />
+        <activity android:name=".login.MenteeSignupActivity"/>
+        <activity android:name=".mentor.team.TeamListActivity" />
         <activity android:name=".mentee.MenteeMainActivity" />
-        <activity android:name=".wbs.WbsListActivity" />
+        <activity android:name=".wbs.list.WbsListActivity" />
         <activity android:name=".wbs.WorkDetailActivity" />
+        <activity android:name=".login.MentorSignupActivity"/>
+        <activity android:name=".mentor.team.AddTeamActivity"/>
+        <activity android:name=".mentor.MentorMainActivity" />
+        <activity android:name=".wbs.AddWorkActivity"
+            android:windowSoftInputMode="adjustResize"/>
     </application>
-
-
 
 </manifest>

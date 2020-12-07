@@ -1,43 +1,76 @@
 package com.khupearl.smp.wbs;
-
-import java.util.ArrayList;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 public class Work {
-    private String teamName;
-    private String subject;
-    private String content;
-    private String time;
-    private String field;
-    ArrayList<String> member = new ArrayList<>();
+    @Expose
+    @SerializedName("fk_team") private String team;
 
-    public Work(String subject, String field) {
-        this.subject = subject;
+    @Expose
+    @SerializedName("title") private String title;
+
+    @Expose
+    @SerializedName("content") private String content;
+
+    @Expose
+    @SerializedName("date") private String date;
+
+    @Expose
+    @SerializedName("field") private String field;
+
+    @Expose
+    @SerializedName("state") private String state;
+
+    @Expose
+    @SerializedName("id") private int id;
+
+    @Expose
+    @SerializedName("success") private boolean success;
+
+    public Work(String title, String field, int id) {
+        this.title = title;
         this.field = field;
+        this.id = id;
     }
 
-    public Work(String teamName, String subject, String content, String time, String field, ArrayList<String> member) {
-        this.teamName = teamName;
-        this.subject = subject;
+    public Work(String team, String title, String field, int id) {
+        this.team = team;
+        this.title = title;
+        this.field = field;
+        this.id = id;
+    }
+
+    public Work(String team, String title, String date, String field, int id) {
+        this.team = team;
+        this.title = title;
+        this.date = date;
+        this.field = field;
+        this.id = id;
+    }
+
+    public Work(String team, String title, String content, String date, String field, int id) {
+        this.team = team;
+        this.title = title;
         this.content = content;
-        this.time = time;
+        this.date = date;
         this.field = field;
-        this.member = member;
+        this.id = id;
     }
 
-    public String getTeamName() {
-        return teamName;
+    public String getTeam() {
+        return team;
     }
 
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
+    public void setTeam(String team) {
+        this.team = team;
     }
 
-    public String getSubject() {
-        return subject;
+    public String getTitle() {
+        return title;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {
@@ -48,12 +81,12 @@ public class Work {
         this.content = content;
     }
 
-    public String getTime() {
-        return time;
+    public String getDate() {
+        return date;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getField() {
@@ -64,11 +97,28 @@ public class Work {
         this.field = field;
     }
 
-    public ArrayList<String> getMember() {
-        return member;
+    public String getState() {
+        return state;
     }
 
-    public void setMember(ArrayList<String> member) {
-        this.member = member;
+    public void setState(String state) {
+        this.state = state;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
 }

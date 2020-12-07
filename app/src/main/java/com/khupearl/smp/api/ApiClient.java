@@ -1,4 +1,4 @@
-package com.khupearl.smp;
+package com.khupearl.smp.api;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -21,6 +21,32 @@
         app:layout_constraintVertical_bias="0.65999997"
         app:layout_constraintWidth_percent="0.57" />
 
+    <RadioGroup
+        android:id="@+id/login_radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/constraintlayout_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <RadioButton
+            android:id="@+id/radio_mentee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="멘티" />
+
+        <RadioButton
+            android:id="@+id/radio_mentor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="멘토" />
+
+
+    </RadioGroup>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintlayout_input"
         android:layout_width="0dp"
@@ -42,6 +68,7 @@
             app:layout_constraintEnd_toStartOf="@+id/editTextTextEmailAddress"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/editTextTextEmailAddress" />
+
 
         <EditText
             android:id="@+id/editTextTextEmailAddress"
@@ -84,31 +111,43 @@
     <Button
         android:id="@+id/login_button"
         android:layout_width="0dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/bg_listitem"
         android:text="Login"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/signup_button"
+        app:layout_constraintBottom_toTopOf="@+id/mentor_signup_button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintlayout_input"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_percent="0.7" />
+
+
+    <Button
+        android:id="@+id/mentor_signup_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_graybutton"
+        android:text="mentor sign up"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/mentee_signup_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_button"
         app:layout_constraintWidth_percent="0.7" />
 
     <Button
-        android:id="@+id/signup_button"
+        android:id="@+id/mentee_signup_button"
         android:layout_width="0dp"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/bg_graybutton"
-        android:text="sign up"
+        android:text="mentee sign up"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintlayout_input"
-        app:layout_constraintVertical_bias="0.53"
+        app:layout_constraintTop_toBottomOf="@+id/mentor_signup_button"
         app:layout_constraintWidth_percent="0.7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

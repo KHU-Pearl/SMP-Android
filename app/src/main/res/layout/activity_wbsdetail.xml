@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -6,23 +7,16 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/textview_subject"
-        android:layout_width="wrap_content"
+    <com.khupearl.smp.SmpToolbar
+        android:id="@+id/wbsDetailToolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/layout_margin_size"
-        android:layout_marginTop="@dimen/layout_margin_size"
-        android:text="UI 구현하기"
-        android:textColor="@color/black"
-        android:textSize="@dimen/list_title_text_size"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textview_content"
+        android:id="@+id/contentTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/layout_margin_size"
@@ -34,20 +28,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_subject" />
+        app:layout_constraintTop_toBottomOf="@+id/wbsDetailToolbar" />
 
     <TextView
-        android:id="@+id/textview_content_detail"
+        android:id="@+id/contentDetailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ui 구현하기 유아이를 구현하자 유아이 구현"
         android:textColor="@color/black"
         android:textSize="@dimen/list_item_content_text_size"
-        app:layout_constraintStart_toStartOf="@+id/textview_content"
-        app:layout_constraintTop_toBottomOf="@+id/textview_content" />
+        app:layout_constraintStart_toStartOf="@+id/contentTextView"
+        app:layout_constraintTop_toBottomOf="@+id/contentTextView" />
 
     <TextView
-        android:id="@+id/textview_field"
+        android:id="@+id/fieldTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/layout_margin_size"
@@ -59,20 +53,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_content_detail" />
+        app:layout_constraintTop_toBottomOf="@+id/contentDetailTextView" />
 
     <TextView
-        android:id="@+id/textview_field_detail"
+        android:id="@+id/fieldDetailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="안드로이드"
         android:textColor="@color/black"
         android:textSize="@dimen/list_item_content_text_size"
-        app:layout_constraintStart_toStartOf="@+id/textview_field"
-        app:layout_constraintTop_toBottomOf="@+id/textview_field" />
+        app:layout_constraintStart_toStartOf="@+id/fieldTextView"
+        app:layout_constraintTop_toBottomOf="@+id/fieldTextView" />
 
     <TextView
-        android:id="@+id/textview_time"
+        android:id="@+id/timeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/layout_margin_size"
@@ -84,20 +78,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_field_detail" />
+        app:layout_constraintTop_toBottomOf="@+id/fieldDetailTextView" />
 
     <TextView
-        android:id="@+id/textview_time_detail"
+        android:id="@+id/timeDetailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2020년 12월 1일 (D-20)"
         android:textColor="@color/black"
         android:textSize="@dimen/list_item_content_text_size"
-        app:layout_constraintStart_toStartOf="@+id/textview_time"
-        app:layout_constraintTop_toBottomOf="@+id/textview_time" />
+        app:layout_constraintStart_toStartOf="@+id/timeTextView"
+        app:layout_constraintTop_toBottomOf="@+id/timeTextView" />
 
     <TextView
-        android:id="@+id/textview_member"
+        android:id="@+id/memberTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/layout_margin_size"
@@ -109,24 +103,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_time_detail" />
+        app:layout_constraintTop_toBottomOf="@+id/timeDetailTextView" />
 
     <TextView
-        android:id="@+id/textview_member_detail"
+        android:id="@+id/memberDetailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="이성근, 문인주, 이유진"
         android:textColor="@color/black"
         android:textSize="@dimen/list_item_content_text_size"
-        app:layout_constraintStart_toStartOf="@+id/textview_member"
-        app:layout_constraintTop_toBottomOf="@+id/textview_member" />
+        app:layout_constraintStart_toStartOf="@+id/memberTextView"
+        app:layout_constraintTop_toBottomOf="@+id/memberTextView" />
 
     <Button
-        android:id="@+id/button_change_state"
+        android:id="@+id/changeStateButton"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_listitem"
-        android:text="완  료"
+        android:text="진행상태변경"
         android:textColor="@color/white"
         android:layout_margin="@dimen/layout_margin_size"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -134,3 +128,4 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

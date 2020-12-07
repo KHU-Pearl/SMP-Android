@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.khupearl.smp.SmpToolbar
+                android:id="@+id/addteamToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <EditText
+                android:id="@+id/editTextTeamName_addteam"
+                android:layout_width="250dp"
+                android:layout_height="49dp"
+                android:layout_marginTop="30dp"
+                android:ems="10"
+                android:hint="팀명"
+                android:inputType="textEmailAddress"
+                app:layout_constraintBottom_toTopOf="@+id/editTextTeamTitle_addteam"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.31"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addteamToolbar"
+                app:layout_constraintVertical_bias="1.0" />
+
+
+            <EditText
+                android:id="@+id/editTextTeamTitle_addteam"
+                android:layout_width="310dp"
+                android:layout_height="49dp"
+                android:ems="10"
+                android:hint="주제"
+                app:layout_constraintBottom_toTopOf="@+id/editTextTeamContent_addteam"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.504"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTeamName_addteam" />
+
+            <Button
+                android:id="@+id/team_name_check_button"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+
+                android:background="@drawable/bg_listitem"
+                android:text="중복확인"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/editTextTeamName_addteam"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/editTextTeamName_addteam"
+                app:layout_constraintTop_toTopOf="@+id/editTextTeamName_addteam"
+                app:layout_constraintVertical_bias="0.5" />
+
+            <EditText
+                android:id="@+id/editTextTeamContent_addteam"
+                android:layout_width="310dp"
+                android:layout_height="49dp"
+                android:layout_marginBottom="20dp"
+                android:ems="10"
+                android:hint="내용"
+                android:inputType="text"
+                app:layout_constraintBottom_toTopOf="@+id/editTexMemberEmail_addteam"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.504"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTeamTitle_addteam" />
+
+            <EditText
+                android:id="@+id/editTexMemberEmail_addteam"
+                android:layout_width="250dp"
+                android:layout_height="49dp"
+
+                android:ems="10"
+                android:hint="추가할 멤버의 이메일 입력"
+                android:inputType="textEmailAddress"
+                app:layout_constraintBottom_toTopOf="@+id/member_listview"
+                app:layout_constraintEnd_toStartOf="@+id/add_member_button"
+                app:layout_constraintStart_toStartOf="@+id/member_listview"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTeamContent_addteam"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <Button
+                android:id="@+id/add_member_button"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+
+                android:background="@drawable/bg_listitem"
+
+                android:text="팀원추가"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/editTexMemberEmail_addteam"
+                app:layout_constraintEnd_toEndOf="@+id/member_listview"
+                app:layout_constraintStart_toEndOf="@+id/editTexMemberEmail_addteam"
+                app:layout_constraintTop_toTopOf="@+id/editTexMemberEmail_addteam" />
+
+
+            <ListView
+                android:id="@+id/member_listview"
+                android:layout_width="308dp"
+                android:layout_height="128dp"
+                android:layout_margin="@dimen/layout_margin_size"
+                android:layout_marginBottom="30dp"
+                app:layout_constraintBottom_toTopOf="@+id/addteam_confirm_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/add_member_button"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/addteam_confirm_button"
+                android:layout_width="275dp"
+                android:layout_height="47dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/bg_listitem"
+                android:text="Signup"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
