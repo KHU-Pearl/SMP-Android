@@ -1,5 +1,5 @@
 # SMP-Android
-창업 (Start up) 교육 관리 (Management) 프로그램 (Program) for KHU
+창업 교육 (Start-up training) 관리 (Management) 프로그램 (Program) for KHU
 
 > 경희대학교 SW GURU 프로젝트 그룹에서 진행되었습니다.
 
