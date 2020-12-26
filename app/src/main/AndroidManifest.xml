@@ -22,15 +22,16 @@
         </activity>
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".login.SignupActivity"/>
-        <activity android:name=".mentor.team.TeamListActivity" />
+        <activity android:name=".team.TeamListActivity" />
         <activity android:name=".mentee.MenteeMainActivity" />
         <activity android:name=".wbs.list.WbsListActivity" />
         <activity android:name=".wbs.WorkDetailActivity" />
-        <activity android:name=".mentor.team.AddTeamActivity"/>
+        <activity android:name=".team.AddTeamActivity"/>
         <activity android:name=".mentor.MentorMainActivity" />
         <activity android:name=".wbs.AddWorkActivity"
             android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".SettingActivity" />
+        <activity android:name=".team.GithubActivity" />
     </application>
 
 </manifest>

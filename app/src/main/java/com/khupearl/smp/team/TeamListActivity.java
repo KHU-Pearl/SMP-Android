@@ -1,8 +1,7 @@
-package com.khupearl.smp.mentor.team;
+package com.khupearl.smp.team;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -11,9 +10,7 @@ import com.khupearl.smp.R;
 import com.khupearl.smp.SmpToolbar;
 import com.khupearl.smp.api.ApiClient;
 import com.khupearl.smp.api.ApiInterface;
-import com.khupearl.smp.mentee.MenteeMainActivity;
 import com.khupearl.smp.mentor.Mentor;
-import com.khupearl.smp.wbs.Work;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +18,6 @@ import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import org.json.JSONArray;
 
 import retrofit2.Call;
 import retrofit2.Callback;

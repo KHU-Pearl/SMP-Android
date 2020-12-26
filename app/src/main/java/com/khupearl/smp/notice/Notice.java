@@ -2,10 +2,6 @@ package com.khupearl.smp.notice;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.khupearl.smp.mentor.team.Team;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Notice {
     @Expose

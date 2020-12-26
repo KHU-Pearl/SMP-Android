@@ -11,7 +11,8 @@ import com.khupearl.smp.SettingActivity;
 import com.khupearl.smp.api.ApiClient;
 import com.khupearl.smp.api.ApiInterface;
 import com.khupearl.smp.databinding.ActivityMenteeMainBinding;
-import com.khupearl.smp.mentor.team.Team;
+import com.khupearl.smp.team.GithubActivity;
+import com.khupearl.smp.team.Team;
 import com.khupearl.smp.wbs.list.WbsListActivity;
 
 import androidx.annotation.Nullable;
@@ -33,6 +34,7 @@ public class MenteeMainActivity extends AppCompatActivity implements View.OnClic
         binding = DataBindingUtil.setContentView(this, R.layout.activity_mentee_main);
 
         binding.summaryConstraintlayout.setOnClickListener(this);
+        binding.githubButton.setOnClickListener(this);
         myApplication = (MyApplication)getApplication();
 
         setToolBar();
@@ -52,6 +54,9 @@ public class MenteeMainActivity extends AppCompatActivity implements View.OnClic
                 intent.putExtra("teamName", myApplication.getTeamName());
                 view.getContext().startActivity(intent);
                 break;
+            case R.id.githubButton:
+                Intent intent2 = new Intent(MenteeMainActivity.this, GithubActivity.class);
+                view.getContext().startActivity(intent2);
         }
 
     }
