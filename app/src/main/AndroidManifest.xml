@@ -30,6 +30,7 @@
         <activity android:name=".mentor.MentorMainActivity" />
         <activity android:name=".wbs.AddWorkActivity"
             android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".SettingActivity" />
         <activity android:name=".team.GithubActivity" />
     </application>
 

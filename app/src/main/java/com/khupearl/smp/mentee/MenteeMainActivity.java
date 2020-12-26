@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.khupearl.smp.MyApplication;
 import com.khupearl.smp.R;
+import com.khupearl.smp.SettingActivity;
 import com.khupearl.smp.api.ApiClient;
 import com.khupearl.smp.api.ApiInterface;
 import com.khupearl.smp.databinding.ActivityMenteeMainBinding;
@@ -61,7 +62,12 @@ public class MenteeMainActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void setToolBar() {
-        binding.menteeMainToolbar.setLeftButton(R.drawable.ic_setting, null);
+        binding.menteeMainToolbar.setLeftButton(R.drawable.ic_setting, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenteeMainActivity.this, SettingActivity.class));
+            }
+        });
         binding.menteeMainToolbar.setRightButton(R.drawable.ic_notification, null);
     }
 
