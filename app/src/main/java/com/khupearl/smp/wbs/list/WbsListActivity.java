@@ -9,8 +9,6 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import com.khupearl.smp.MyApplication;
 import com.khupearl.smp.SmpToolbar;
 import com.khupearl.smp.R;
-import com.khupearl.smp.mentor.team.AddTeamActivity;
-import com.khupearl.smp.mentor.team.TeamListActivity;
 import com.khupearl.smp.wbs.AddWorkActivity;
 
 import java.util.Arrays;

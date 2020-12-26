@@ -1,4 +1,4 @@
-package com.khupearl.smp.mentor.team;
+package com.khupearl.smp.team;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -18,6 +18,9 @@ public class Team {
 
     @Expose
     @SerializedName("empty") private Boolean empty;
+
+    @Expose
+    @SerializedName("github")private String github;
 
     public Boolean getEmpty() {
         return empty;
@@ -62,5 +65,13 @@ public class Team {
 
     public void setSuccess(Boolean success) {
         this.success = success;
+    }
+
+    public String getGithub() {
+        return github;
+    }
+
+    public void setGithub(String github) {
+        this.github = github;
     }
 }
