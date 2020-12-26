@@ -26,7 +26,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     MyApplication myApp;
     private EditText editText_ID, editText_password;
-    private Button loginButton,menteesignupButton, mentorsignupbutton;
+    private Button loginButton,menteesignupButton;
     private RadioGroup rg;
     String email, fk_team, name, password, major;
     int student_id;
@@ -42,10 +42,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         loginButton = findViewById(R.id.login_button);
         loginButton.setOnClickListener(this);
-        menteesignupButton = findViewById(R.id.mentee_signup_button);
+        menteesignupButton = findViewById(R.id.signup_button);
         menteesignupButton.setOnClickListener(this);
-        mentorsignupbutton = findViewById(R.id.mentor_signup_button);
-        mentorsignupbutton.setOnClickListener(this);
     }
 
     @Override
@@ -57,17 +55,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if(rg.getCheckedRadioButtonId()==R.id.radio_mentee) LoginMentee(input_email,input_password);
                 else LoginMentor(input_email, input_password);
                 break;
-            case R.id.mentee_signup_button:
-                startActivity(new Intent(this, MenteeSignupActivity.class));
-                Toast.makeText(LoginActivity.this, "멘티 회원가입.", Toast.LENGTH_SHORT).show();
+            case R.id.signup_button:
+                Intent intent = new Intent(LoginActivity.this, SignupActivity.class);
+                if (rg.getCheckedRadioButtonId()==R.id.radio_mentee) intent.putExtra("userType", "mentee");
+                else intent.putExtra("userType", "mentor");
+                startActivity(intent);
                 break;
-            case R.id.mentor_signup_button:
-                startActivity(new Intent(this, MentorSignupActivity.class));
-                Toast.makeText(LoginActivity.this, "멘토 회원가입.", Toast.LENGTH_SHORT).show();
-                break;
-
         }
     }
+
     private void LoginMentor(String input_email, String input_password) {
         ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
         Call<Mentor> call = apiInterface.loginMentor(input_email, input_password);
