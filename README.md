@@ -42,4 +42,5 @@
 
 
 ## 3. DB 구조
-![image](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3edeacc6-9c5f-4e96-a0e1-beb27e83fe5e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20201218%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20201218T191036Z&X-Amz-Expires=86400&X-Amz-Signature=817e78f8dff70c551a1bff50f65b028436fc0feca2e7ef9063da346a9d55ce45&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
+![image](https://user-images.githubusercontent.com/37680108/103150443-9471b800-47b7-11eb-9277-eecf7a79063e.png)
+
