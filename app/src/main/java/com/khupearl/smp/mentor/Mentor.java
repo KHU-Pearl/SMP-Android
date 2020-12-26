@@ -2,7 +2,7 @@ package com.khupearl.smp.mentor;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.khupearl.smp.mentor.team.Team;
+import com.khupearl.smp.team.Team;
 
 import java.util.ArrayList;
 import java.util.List;

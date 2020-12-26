@@ -7,7 +7,7 @@ import android.view.View;
 import com.khupearl.smp.MyApplication;
 import com.khupearl.smp.R;
 import com.khupearl.smp.databinding.ActivityMentorMainBinding;
-import com.khupearl.smp.mentor.team.TeamListActivity;
+import com.khupearl.smp.team.TeamListActivity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
