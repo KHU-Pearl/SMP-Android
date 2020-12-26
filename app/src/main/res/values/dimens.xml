@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="layout_margin_size">20dp</dimen>
-    <dimen name="edittext_horizontal_margin_size">30dp</dimen>
+    <dimen name="edittext_horizontal_margin_size">35dp</dimen>
 
     <dimen name="list_title_text_size">24sp</dimen>
     <dimen name="list_item_title_text_size">18sp</dimen>
