@@ -13,6 +13,7 @@ import com.khupearl.smp.api.ApiClient;
 import com.khupearl.smp.api.ApiInterface;
 import com.khupearl.smp.mentee.Mentee;
 
+import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 import retrofit2.Call;
@@ -123,7 +124,7 @@ public class MenteeSignupActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void setToolBar() {
-        toolbar.setTitleTextView("멘티 회원가입");
+        toolbar.setTitleTextView(getString(R.string.mentee_signup));
         toolbar.setLeftButton(R.drawable.ic_arrow_back, new View.OnClickListener() {
             @Override
             public void onClick(View view) {

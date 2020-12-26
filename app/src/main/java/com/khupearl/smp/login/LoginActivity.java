@@ -16,7 +16,6 @@ import com.khupearl.smp.R;
 import com.khupearl.smp.mentee.MenteeMainActivity;
 import com.khupearl.smp.mentor.Mentor;
 import com.khupearl.smp.mentor.MentorMainActivity;
-import com.khupearl.smp.mentor.team.TeamListActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

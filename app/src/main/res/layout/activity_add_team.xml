@@ -27,7 +27,7 @@
                 android:layout_height="49dp"
                 android:layout_marginTop="30dp"
                 android:ems="10"
-                android:hint="팀명"
+                android:hint="@string/hint_teamname"
                 android:inputType="textEmailAddress"
                 app:layout_constraintBottom_toTopOf="@+id/editTextTeamTitle_addteam"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
                 android:layout_width="310dp"
                 android:layout_height="49dp"
                 android:ems="10"
-                android:hint="주제"
+                android:hint="@string/hint_title"
                 app:layout_constraintBottom_toTopOf="@+id/editTextTeamContent_addteam"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.504"
@@ -53,9 +53,8 @@
                 android:id="@+id/team_name_check_button"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
-
                 android:background="@drawable/bg_listitem"
-                android:text="중복확인"
+                android:text="@string/check_button"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="@+id/editTextTeamName_addteam"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +69,7 @@
                 android:layout_height="49dp"
                 android:layout_marginBottom="20dp"
                 android:ems="10"
-                android:hint="내용"
+                android:hint="@string/hint_content"
                 android:inputType="text"
                 app:layout_constraintBottom_toTopOf="@+id/editTexMemberEmail_addteam"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -82,9 +81,8 @@
                 android:id="@+id/editTexMemberEmail_addteam"
                 android:layout_width="250dp"
                 android:layout_height="49dp"
-
                 android:ems="10"
-                android:hint="추가할 멤버의 이메일 입력"
+                android:hint="@string/hint_memberemail"
                 android:inputType="textEmailAddress"
                 app:layout_constraintBottom_toTopOf="@+id/member_listview"
                 app:layout_constraintEnd_toStartOf="@+id/add_member_button"
@@ -96,10 +94,8 @@
                 android:id="@+id/add_member_button"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
-
                 android:background="@drawable/bg_listitem"
-
-                android:text="팀원추가"
+                android:text="@string/addmember_button"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="@+id/editTexMemberEmail_addteam"
                 app:layout_constraintEnd_toEndOf="@+id/member_listview"
@@ -125,12 +121,11 @@
                 android:layout_height="47dp"
                 android:layout_marginBottom="30dp"
                 android:background="@drawable/bg_listitem"
-                android:text="Signup"
+                android:text="@string/add_team"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

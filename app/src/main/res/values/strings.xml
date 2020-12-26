@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">창업관리</string>
+
+    <string name="todo">예정</string>
+    <string name="inprogress">진행</string>
+    <string name="done">완</string>
+
+    <string name="hint_email">이메일</string>
+    <string name="hint_password">비밀번호</string>
+    <string name="hint_teamname">팀명</string>
+    <string name="hint_title">주제</string>
+    <string name="check_button">중복확인</string>
+    <string name="hint_content">내용</string>
+    <string name="hint_memberemail">추가할 멤버의 이메일 입력</string>
+    <string name="addmember_button">팀원추가</string>
+    <string name="hint_worktitle">제목</string>
+    <string name="hint_workcontent">내용</string>
+    <string name="hint_workfield">작업 분야</string>
+    <string name="hint_workdate">종료 날짜</string>
+    <string name="hint_workmember">참여 멤</string>
+
+    <string name="mentee_signup">멘티 회원가입</string>
+    <string name="mentor_signup">멘토 회원가입</string>
+    <string name="add_team">팀 만들기</string>
 </resources>

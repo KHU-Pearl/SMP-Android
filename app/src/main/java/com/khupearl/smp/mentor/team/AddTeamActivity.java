@@ -220,7 +220,7 @@ public class AddTeamActivity extends AppCompatActivity implements View.OnClickLi
 
 
     private void setToolBar() {
-        binding.addteamToolbar.setTitleTextView("팀 만들기");
+        binding.addteamToolbar.setTitleTextView(getString(R.string.add_team));
         binding.addteamToolbar.setLeftButton(R.drawable.ic_arrow_back, new View.OnClickListener() {
             @Override
             public void onClick(View view) {

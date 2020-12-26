@@ -116,7 +116,7 @@ public class MentorSignupActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void setToolBar() {
-        toolbar.setTitleTextView("멘토 회원가입");
+        toolbar.setTitleTextView(getString(R.string.mentor_signup));
         toolbar.setLeftButton(R.drawable.ic_arrow_back, new View.OnClickListener() {
             @Override
             public void onClick(View view) {

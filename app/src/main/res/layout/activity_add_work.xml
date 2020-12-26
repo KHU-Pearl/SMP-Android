@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:hint="제목을 입력하세요" />
+                android:hint="@string/hint_worktitle" />
 
             <EditText
                 android:id="@+id/workContentEditText"
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:layout_marginTop="@dimen/vertical_margin_size"
-                android:hint="내용을 입력하세요" />
+                android:hint="@string/hint_workcontent" />
 
             <EditText
                 android:id="@+id/workFieldEditText"
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:layout_marginTop="@dimen/vertical_margin_size"
-                android:hint="작업 분야를 입력하세요 (ex. 기획)" />
+                android:hint="@string/hint_workfield" />
 
             <EditText
                 android:id="@+id/workDateEditText"
@@ -62,7 +62,7 @@
                 android:layout_marginTop="@dimen/vertical_margin_size"
                 android:focusable="false"
                 android:clickable="true"
-                android:hint="목표 종료 날짜를 입력하세요" />
+                android:hint="@string/hint_workdate" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -74,7 +74,7 @@
                     android:id="@+id/addMemberEditText"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:hint="참여할 멤버의 이메일 입력"
+                    android:hint="@string/hint_memberemail"
                     android:inputType="textEmailAddress"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/addMemberButton"
@@ -86,7 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_listitem"
-                    android:text="추가"
+                    android:text="@string/addmember_button"
                     android:textColor="@color/white"
                     android:layout_marginLeft="@dimen/vertical_margin_size"
                     app:layout_constraintStart_toEndOf="@id/addMemberEditText"
