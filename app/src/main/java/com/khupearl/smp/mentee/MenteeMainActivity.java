@@ -2,7 +2,6 @@ package com.khupearl.smp.mentee;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -12,15 +11,11 @@ import com.khupearl.smp.api.ApiClient;
 import com.khupearl.smp.api.ApiInterface;
 import com.khupearl.smp.databinding.ActivityMenteeMainBinding;
 import com.khupearl.smp.mentor.team.Team;
-import com.khupearl.smp.notice.Notice;
-import com.khupearl.smp.wbs.Work;
 import com.khupearl.smp.wbs.list.WbsListActivity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
