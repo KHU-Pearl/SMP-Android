@@ -2,25 +2,22 @@ package com.khupearl.smp.mentee;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.khupearl.smp.MyApplication;
 import com.khupearl.smp.R;
+import com.khupearl.smp.SettingActivity;
 import com.khupearl.smp.api.ApiClient;
 import com.khupearl.smp.api.ApiInterface;
 import com.khupearl.smp.databinding.ActivityMenteeMainBinding;
-import com.khupearl.smp.mentor.team.Team;
-import com.khupearl.smp.notice.Notice;
-import com.khupearl.smp.wbs.Work;
+import com.khupearl.smp.team.GithubActivity;
+import com.khupearl.smp.team.Team;
 import com.khupearl.smp.wbs.list.WbsListActivity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,6 +34,7 @@ public class MenteeMainActivity extends AppCompatActivity implements View.OnClic
         binding = DataBindingUtil.setContentView(this, R.layout.activity_mentee_main);
 
         binding.summaryConstraintlayout.setOnClickListener(this);
+        binding.githubButton.setOnClickListener(this);
         myApplication = (MyApplication)getApplication();
 
         setToolBar();
@@ -56,12 +54,20 @@ public class MenteeMainActivity extends AppCompatActivity implements View.OnClic
                 intent.putExtra("teamName", myApplication.getTeamName());
                 view.getContext().startActivity(intent);
                 break;
+            case R.id.githubButton:
+                Intent intent2 = new Intent(MenteeMainActivity.this, GithubActivity.class);
+                view.getContext().startActivity(intent2);
         }
 
     }
 
     private void setToolBar() {
-        binding.menteeMainToolbar.setLeftButton(R.drawable.ic_setting, null);
+        binding.menteeMainToolbar.setLeftButton(R.drawable.ic_setting, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenteeMainActivity.this, SettingActivity.class));
+            }
+        });
         binding.menteeMainToolbar.setRightButton(R.drawable.ic_notification, null);
     }
 

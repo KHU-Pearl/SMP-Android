@@ -18,18 +18,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65999997"
+        app:layout_constraintVertical_bias="0.56"
         app:layout_constraintWidth_percent="0.57" />
 
     <RadioGroup
         android:id="@+id/login_radioGroup"
         android:layout_width="wrap_content"
-        android:layout_height="32dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/constraintlayout_input"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.68">
 
         <RadioButton
             android:id="@+id/radio_mentee"
@@ -44,7 +45,6 @@
             android:layout_height="wrap_content"
             android:text="멘토" />
 
-
     </RadioGroup>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.54"
+        app:layout_constraintVertical_bias="0.56"
         app:layout_constraintWidth_percent="0.7">
 
         <ImageView
@@ -69,14 +69,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/editTextTextEmailAddress" />
 
-
         <EditText
             android:id="@+id/editTextTextEmailAddress"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginBottom="16dp"
             android:ems="10"
-            android:hint="이메일"
+            android:hint="@string/hint_email"
             android:inputType="textEmailAddress"
             app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
             app:layout_constraintEnd_toEndOf="parent"
@@ -99,7 +98,7 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:ems="10"
-            android:hint="비밀번호"
+            android:hint="@string/hint_password"
             android:inputType="textPassword"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -115,39 +114,27 @@
         android:background="@drawable/bg_listitem"
         android:text="Login"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/mentor_signup_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintlayout_input"
-        app:layout_constraintWidth_percent="0.7" />
-
-
-    <Button
-        android:id="@+id/mentor_signup_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_graybutton"
-        android:text="mentor sign up"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/mentee_signup_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button"
+        app:layout_constraintVertical_bias="0.120000005"
         app:layout_constraintWidth_percent="0.7" />
 
     <Button
-        android:id="@+id/mentee_signup_button"
+        android:id="@+id/signup_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
         android:background="@drawable/bg_graybutton"
-        android:text="mentee sign up"
+        android:text="sign up"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mentor_signup_button"
+        app:layout_constraintTop_toBottomOf="@+id/login_button"
+        app:layout_constraintVertical_bias="0.19999999"
         app:layout_constraintWidth_percent="0.7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

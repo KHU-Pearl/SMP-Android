@@ -3,8 +3,7 @@ package com.khupearl.smp.api;
 import com.khupearl.smp.mentee.Mentee;
 import com.khupearl.smp.mentee.Progress;
 import com.khupearl.smp.mentor.Mentor;
-import com.khupearl.smp.mentor.team.Team;
-import com.khupearl.smp.notice.Notice;
+import com.khupearl.smp.team.Team;
 import com.khupearl.smp.wbs.Work;
 
 import java.util.List;
@@ -139,6 +138,12 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("Get_team_info.php")
     Call<Team> getTeamInfo(
+            @Field("name") String name
+    );
+
+    @FormUrlEncoded
+    @POST("Get_team_github_url.php")
+    Call<Team> getTeamUrl(
             @Field("name") String name
     );
 

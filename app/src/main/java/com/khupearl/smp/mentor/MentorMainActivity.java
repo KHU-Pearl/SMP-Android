@@ -6,8 +6,10 @@ import android.view.View;
 
 import com.khupearl.smp.MyApplication;
 import com.khupearl.smp.R;
+import com.khupearl.smp.SettingActivity;
 import com.khupearl.smp.databinding.ActivityMentorMainBinding;
-import com.khupearl.smp.mentor.team.TeamListActivity;
+import com.khupearl.smp.mentee.MenteeMainActivity;
+import com.khupearl.smp.team.TeamListActivity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,7 +55,12 @@ public class MentorMainActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void setToolBar() {
-        binding.mentorMainToolbar.setLeftButton(R.drawable.ic_setting, null);
+        binding.mentorMainToolbar.setLeftButton(R.drawable.ic_setting, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MentorMainActivity.this, SettingActivity.class));
+            }
+        });
         binding.mentorMainToolbar.setRightButton(R.drawable.ic_notification, null);
     }
 }

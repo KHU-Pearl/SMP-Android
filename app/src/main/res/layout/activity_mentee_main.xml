@@ -97,13 +97,13 @@
                     app:layout_constraintBottom_toTopOf="@+id/todoTextView"
                     app:layout_constraintEnd_toStartOf="@+id/view2"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+                    app:layout_constraintTop_toBottomOf="@+id/menteeProgressBar" />
 
                 <TextView
                     android:id="@+id/todoTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="예정"
+                    android:text="@string/todo"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/list_item_content_text_size"
                     app:layout_constraintEnd_toStartOf="@+id/view2"
@@ -137,7 +137,7 @@
                     android:id="@+id/inprogressTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="진행"
+                    android:text="@string/inprogress"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/list_item_content_text_size"
                     app:layout_constraintEnd_toStartOf="@+id/view"
@@ -171,7 +171,7 @@
                     android:id="@+id/doneTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="완료"
+                    android:text="@string/done"
                     android:textColor="@color/gray"
                     android:textSize="@dimen/list_item_content_text_size"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -181,7 +181,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/githubButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/vertical_margin_size"
@@ -215,7 +215,7 @@
                     android:id="@+id/noticeContentTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="이것이 공지사항이다\n내용을 어떻게 구성할까\n 더보기로 만들면 좋겠지만 어떻게 해야되지"
+                    android:text="공지사항 리스트 자리"
                     android:textSize="@dimen/list_item_title_text_size"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"

@@ -1,26 +1,19 @@
-package com.khupearl.smp.mentor.team;
+package com.khupearl.smp.team;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.khupearl.smp.MyApplication;
 import com.khupearl.smp.R;
 import com.khupearl.smp.api.ApiClient;
 import com.khupearl.smp.api.ApiInterface;
 import com.khupearl.smp.databinding.ActivityAddTeamBinding;
-import com.khupearl.smp.login.LoginActivity;
-import com.khupearl.smp.login.MenteeSignupActivity;
-import com.khupearl.smp.login.MentorSignupActivity;
 import com.khupearl.smp.mentee.Mentee;
 
 import java.util.ArrayList;
@@ -220,7 +213,7 @@ public class AddTeamActivity extends AppCompatActivity implements View.OnClickLi
 
 
     private void setToolBar() {
-        binding.addteamToolbar.setTitleTextView("팀 만들기");
+        binding.addteamToolbar.setTitleTextView(getString(R.string.add_team));
         binding.addteamToolbar.setLeftButton(R.drawable.ic_arrow_back, new View.OnClickListener() {
             @Override
             public void onClick(View view) {

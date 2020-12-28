@@ -1,4 +1,4 @@
-package com.khupearl.smp.mentor.team;
+package com.khupearl.smp.team;
 
 import android.content.Context;
 import android.content.Intent;
